@@ -17,3 +17,6 @@ func _physics_process(delta):
 	velocity = Vector2(move_direction * speed)
 	move_and_slide()
 	
+func play_anim(movment):
+	var dir 
+	
