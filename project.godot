@@ -10,5 +10,5 @@ config_version=5
 
 [application]
 
-config/name="Dungeon_spill"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/name="Sosse_sompen"
+config/features=PackedStringArray("4.4", "Forward Plus")
