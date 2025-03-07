@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://dpbmsde11qm6v"]
 
-[ext_resource type="Texture2D" uid="uid://ba4kuokmo6iwj" path="res://Sprite/placeholder/Pixel Crawler - Free Pack/Environment/Structures/Buildings/Floors.png" id="1_et6yx"]
-[ext_resource type="Texture2D" uid="uid://dniq1xflek8jk" path="res://Sprite/placeholder/Pixel Crawler - Free Pack/Environment/Structures/Buildings/Walls.png" id="2_yv5tl"]
+[ext_resource type="Texture2D" uid="uid://cu3m2xt8pgk34" path="res://Sprite/placeholder/Pixel Crawler - Free Pack/Environment/Structures/Buildings/Floors.png" id="1_j137n"]
+[ext_resource type="Texture2D" uid="uid://br7mh2pu12ctu" path="res://Sprite/placeholder/Pixel Crawler - Free Pack/Environment/Structures/Buildings/Walls.png" id="2_eskfg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ufe5"]
-texture = ExtResource("1_et6yx")
+texture = ExtResource("1_j137n")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -16,7 +16,7 @@ texture = ExtResource("1_et6yx")
 2:2/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wqug4"]
-texture = ExtResource("2_yv5tl")
+texture = ExtResource("2_eskfg")
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
