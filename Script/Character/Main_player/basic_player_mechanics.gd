@@ -1,10 +1,16 @@
 extends CharacterBody2D
 
-const speed = 100 
+var speed = 0 
+const max_speed = 100
+
 var current_direction = "none"
+
 #Funksjonen er for spiller bevegelsen
 func _physics_process(delta): 
 	var move_direction = Vector2.ZERO
+	const W_key = "dir_Up"
+	const A_key = "dir_Down"
+	
 	
 	if Input.is_action_pressed("dir_Right"):
 		current_direction = "left"
@@ -23,8 +29,13 @@ func _physics_process(delta):
 		play_anim(1)
 		move_direction.y -= 1
 	
+	if Input.is_action_pressed("dir_Down" or ) 
+	
+	
 	velocity = Vector2(move_direction * speed)
 	move_and_slide()
+
+
 
 #Denne funksjonen er for spiller animasjonen når du bevegger spilleren
 func play_anim(movment):
@@ -36,6 +47,7 @@ func play_anim(movment):
 		if movment == 1:
 			animation.play("walk_side")
 		elif movment == 0:
+			multi_bind -= 1
 			animation.play("idle_side")
 			
 	if dir == "left":
@@ -43,6 +55,7 @@ func play_anim(movment):
 		if movment == 1:
 			animation.play("walk_side")
 		elif movment == 0:
+			multi_bind -= 1
 			animation.play("idle_side")
 			
 	if dir == "up":
@@ -50,6 +63,7 @@ func play_anim(movment):
 		if movment == 1:
 			animation.play("walk_back")
 		elif movment == 0:
+			multi_bind -= 1
 			animation.play("idle_back")
 			
 	if dir == "down":
@@ -57,5 +71,6 @@ func play_anim(movment):
 		if movment == 1:
 			animation.play("walk_front")
 		elif movment == 0:
+			multi_bind -= 1
 			animation.play("idle_front")
 	
