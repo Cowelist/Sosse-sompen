@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://ybn25lmbrwk8"]
+
+[ext_resource type="Script" path="res://Script/button/button_startscreen.gd" id="1_w6jtx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_peyp4"]
+font_size = 30
+outline_size = 4
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 453.0
+offset_top = 285.0
+offset_right = 638.0
+offset_bottom = 361.0
+text = "Start game"
+script = ExtResource("1_w6jtx")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 438.0
+offset_top = 209.0
+offset_right = 655.0
+offset_bottom = 232.0
+text = "Sosse sompen"
+label_settings = SubResource("LabelSettings_peyp4")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
