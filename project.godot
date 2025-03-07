@@ -14,6 +14,10 @@ config/name="Sosse_sompen"
 run/main_scene="res://Scene/Characters/Main_player/player_1.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 
+[display]
+
+window/stretch/scale=4.0
+
 [input]
 
 dir_Up={
