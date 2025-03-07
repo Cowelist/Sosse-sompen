@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://db06d1pljxpqf"]
+[gd_scene load_steps=9 format=4 uid="uid://db06d1pljxpqf"]
 
 [ext_resource type="Texture2D" uid="uid://cjjrmnywj386h" path="res://Sprite/placeholder/PNG/spr_terrains.png" id="1_jxet1"]
 [ext_resource type="Texture2D" uid="uid://cqashxj1vl0ic" path="res://Sprite/placeholder/PNG/spr_structures_exterior.png" id="2_u6vlf"]
+[ext_resource type="Script" path="res://Scene/Map/hytte_utenfor.gd" id="3_ltumb"]
+[ext_resource type="PackedScene" uid="uid://bugitywkuf8k" path="res://Scene/Characters/Main_player/player_1.tscn" id="3_saqwi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_251o4"]
 texture = ExtResource("1_jxet1")
@@ -607,11 +609,14 @@ texture = ExtResource("2_u6vlf")
 1:7/0 = 0
 2:7/0 = 0
 5:7/0 = 0
+5:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:7/0 = 0
 7:7/0 = 0
 8:7/0 = 0
 9:7/0 = 0
+9:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 10:7/0 = 0
+10:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 11:7/0 = 0
 12:7/0 = 0
 14:7/0 = 0
@@ -625,9 +630,12 @@ texture = ExtResource("2_u6vlf")
 7:8/0 = 0
 8:8/0 = 0
 9:8/0 = 0
+9:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 10:8/0 = 0
 11:8/0 = 0
+11:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 12:8/0 = 0
+12:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 14:8/0 = 0
 15:8/0 = 0
 16:8/0 = 0
@@ -637,6 +645,7 @@ texture = ExtResource("2_u6vlf")
 6:9/0 = 0
 7:9/0 = 0
 9:9/0 = 0
+9:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 10:9/0 = 0
 11:9/0 = 0
 12:9/0 = 0
@@ -658,6 +667,7 @@ texture = ExtResource("2_u6vlf")
 14:10/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_gaggm"]
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_iq454")
 
 [node name="Node2D" type="Node2D"]
@@ -673,3 +683,6 @@ visibility_layer = 7
 position = Vector2(36, -77)
 tile_map_data = PackedByteArray("AAAMACEAAAAJAAgAAAAMACIAAAAJAAgAAAANACEAAAAJAAcAAAAOACEAAAAFAAcAAAAPACEAAAAJAAcAAAAQACEAAAAJAAgAAAAQACIAAAAJAAgAAAAQACMAAAAJAAkAAAAMACMAAAAJAAkAAAAMACQAAAALAAgAAAANACQAAAAMAAgAAAAPACQAAAALAAgAAAAQACQAAAAMAAgAAAANACIAAAAFAAcAAAAOACIAAAAFAAcAAAAPACIAAAAFAAcAAAANACMAAAAFAAcAAAAOACMAAAAFAAcAAAAPACMAAAAFAAcAAAAOACAAAAAFAAcAAAA=")
 tile_set = SubResource("TileSet_gaggm")
+script = ExtResource("3_ltumb")
+
+[node name="Player1" parent="." instance=ExtResource("3_saqwi")]
