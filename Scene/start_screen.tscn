@@ -12,11 +12,20 @@ grow_vertical = 2
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 407.0
-offset_top = 288.0
-offset_right = 678.0
-offset_bottom = 404.0
+offset_left = 461.0
+offset_top = 305.0
+offset_right = 646.0
+offset_bottom = 381.0
 text = "Start game"
 script = ExtResource("1_2onq1")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 438.0
+offset_top = 209.0
+offset_right = 655.0
+offset_bottom = 232.0
+text = "Sosse sompen"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
