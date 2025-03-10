@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Sosse_sompen"
-run/main_scene="res://Scene/start_screen.tscn"
+run/main_scene="res://Scene/Map/map_test.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 
 [input]
