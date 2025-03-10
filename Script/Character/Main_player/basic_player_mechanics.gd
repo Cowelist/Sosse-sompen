@@ -13,24 +13,49 @@ var current_direction = "none"
 func _physics_process(delta): 
 	var move_direction = Vector2.ZERO
 	
-	var input_pressed = false
+	var store_key = []
+	
 	if Input.is_action_pressed("dir_Right"):
 		current_direction = "right"
-		move_direction.x = 1
+		move_direction.x += 1
+		store_key.append("right")
+		
+		
 		
 	if Input.is_action_pressed("dir_Down"):
 		current_direction = "down"
 		move_direction.y += 1
-	
+		store_key.append("down")
 	
 	if Input.is_action_pressed("dir_Up"):
 		current_direction = "up"
+		store_key.append("up")
 		move_direction.y -= 1
 
 	if Input.is_action_pressed("dir_Left"):
 		current_direction = "left"
+		store_key.append("left")
 		move_direction.x -= 1
 		
+	
+	
+	#Gjort det sånn at man blir så hvit tregere når man går skrått
+	if store_key == ["right", "down"] or store_key == ["down", "left"]:
+		print("should not be called")
+		move_direction.y -= 0.25
+		if "right" in store_key: 
+			move_direction.x -= 0.25
+		elif "left" in store_key:
+			move_direction.x += 0.25
+			
+	if store_key == ["right", "up"] or store_key == ["up", "left"]:
+		print("should not be called")
+		move_direction.y += 0.25
+		if "right" in store_key: 
+			move_direction.x -= 0.25
+		elif "left" in store_key:
+			move_direction.x += 0.25
+
 	print(accumelation)
 	
 	if move_direction.x != 0:
@@ -49,6 +74,7 @@ func _physics_process(delta):
 		accumelation.y = 0
 
 	velocity = Vector2(move_direction * speed * accumelation)
+	print (velocity)
 	play_anim(move_direction)
 	move_and_slide()
 	
