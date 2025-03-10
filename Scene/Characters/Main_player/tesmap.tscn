@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://bdy3l6vccsa3r"]
 
-[ext_resource type="Texture2D" uid="uid://b1ha4eycp32ao" path="res://Sprite/placeholder/Pixel Crawler - Free Pack/Environment/Tilesets/Floors_Tiles.png" id="1_5y8bt"]
+[ext_resource type="Texture2D" uid="uid://bwereyafbs4do" path="res://Sprite/placeholder/Pixel Crawler - Free Pack/Environment/Tilesets/Floors_Tiles.png" id="1_5y8bt"]
 [ext_resource type="PackedScene" uid="uid://bugitywkuf8k" path="res://Scene/Characters/Main_player/player_1.tscn" id="2_uutd6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ye1ap"]
