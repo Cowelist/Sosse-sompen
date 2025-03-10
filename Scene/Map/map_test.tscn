@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://db06d1pljxpqf"]
+[gd_scene load_steps=11 format=4 uid="uid://db06d1pljxpqf"]
 
 [ext_resource type="Texture2D" uid="uid://cjjrmnywj386h" path="res://Sprite/placeholder/PNG/spr_terrains.png" id="1_jxet1"]
 [ext_resource type="Texture2D" uid="uid://cqashxj1vl0ic" path="res://Sprite/placeholder/PNG/spr_structures_exterior.png" id="2_u6vlf"]
 [ext_resource type="Script" path="res://Scene/Map/hytte_utenfor.gd" id="3_ltumb"]
 [ext_resource type="PackedScene" uid="uid://bugitywkuf8k" path="res://Scene/Characters/Main_player/player_1.tscn" id="3_saqwi"]
+[ext_resource type="Script" path="res://Scene/Map/enter_inn.gd" id="4_mkkrv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_251o4"]
 texture = ExtResource("1_jxet1")
@@ -670,6 +671,9 @@ texture = ExtResource("2_u6vlf")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_iq454")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qkm7m"]
+radius = 39.5601
+
 [node name="Node2D" type="Node2D"]
 
 [node name="terrain" type="TileMapLayer" parent="."]
@@ -685,4 +689,18 @@ tile_map_data = PackedByteArray("AAAMACEAAAAJAAgAAAAMACIAAAAJAAgAAAANACEAAAAJAAc
 tile_set = SubResource("TileSet_gaggm")
 script = ExtResource("3_ltumb")
 
+[node name="Area2D" type="Area2D" parent="hytte_utenfor"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_mkkrv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hytte_utenfor/Area2D"]
+position = Vector2(230, 541)
+rotation = -1.0472
+shape = SubResource("CircleShape2D_qkm7m")
+
 [node name="Player1" parent="." instance=ExtResource("3_saqwi")]
+position = Vector2(321, 105)
+collision_layer = 2
+
+[connection signal="body_entered" from="hytte_utenfor/Area2D" to="hytte_utenfor/Area2D" method="_on_body_entered"]
