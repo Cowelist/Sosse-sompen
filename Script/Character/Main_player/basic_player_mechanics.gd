@@ -1,52 +1,45 @@
 extends CharacterBody2D
 
-var speed = 0
+var speed = 50
 const max_speed = 100
+var wheight = 60
 
 var current_direction = "none"
+var move_direction = Vector2.ZERO
 
 
 #Funksjonen er for spiller bevegelsen
 func _physics_process(delta): 
-	var move_direction = Vector2.ZERO
-	const W_key = "dir_Up"
-	const A_key = "dir_Left"
-	const S_key = "dir_Down"
-	const D_key = "dir_Right"
-	const WASD = [W_key, A_key, S_key, D_key]
-
+	
 	var input_pressed = false
+	if Input.is_action_pressed("dir_Right"):
+		current_direction = "right"
+		play_anim(1)
+		speed_handler(1)
+	if Input.is_action_pressed("dir_Down"):
+		current_direction = "down"
+		play_anim(1)
+		move_direction.y += 1
+	if Input.is_action_pressed("dir_Up"):
+		current_direction = "up"
+		play_anim(1)
+		move_direction.y -= 1
+	if Input.is_action_pressed("dir_Left"):
+		current_direction = "left"
+		play_anim(1)
+		move_direction.x -= 1
 
-	for movment in WASD:
-		if Input.is_action_pressed(movment) and not input_pressed:
-			input_pressed = true
-			match movment: 
-				W_key: 
-					current_direction = "up"
-					play_anim(1)
-					move_direction.y -= 1
-				A_key:
-					current_direction = "left"
-					play_anim(1)
-					move_direction.x -= 1
-				S_key:
-					current_direction = "down"
-					play_anim(1)
-					move_direction.y += 1
-				D_key:
-					current_direction = "right"
-					play_anim(1)
-					move_direction.x += 1
-			#elif:
-	for action in WASD:
-		if Input.is_action_pressed(action) and speed <= max_speed:
-			speed += 1
-			print("+speed")
-		elif !Input.is_action_pressed(action) and speed >= 0:
-			speed -= 0.4
-			print("-speed")
-		velocity = Vector2(move_direction * speed)
-		move_and_slide()
+	velocity = Vector2(move_direction * speed)
+	move_and_slide()
+
+func speed_handler(acc):
+	var dir = current_direction
+	if dir == "right":
+		move_direction.x = 1
+	
+	var force = move_direction * wheight
+	var tempo = force - speed
+	
 
 
 
