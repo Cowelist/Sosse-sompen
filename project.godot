@@ -11,8 +11,12 @@ config_version=5
 [application]
 
 config/name="Sosse_sompen"
-run/main_scene="res://Scene/Characters/Main_player/player_1.tscn"
+run/main_scene="res://Scene/Characters/Main_player/tesmap.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+
+[display]
+
+window/stretch/scale=4.0
 
 [input]
 
