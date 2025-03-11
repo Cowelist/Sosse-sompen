@@ -6,7 +6,7 @@ var weight = 60
 var accumelation = Vector2(1, 1)
 
 var current_direction = "none"
-
+var one_time = false
 
 
 #Funksjonen er for spiller bevegelsen
@@ -41,7 +41,6 @@ func _physics_process(delta):
 	
 	#Gjort det sånn at man blir så hvit tregere når man går skrått
 	if store_key == ["right", "down"] or store_key == ["down", "left"]:
-		print("should not be called")
 		move_direction.y -= 0.25
 		if "right" in store_key: 
 			move_direction.x -= 0.25
@@ -49,29 +48,31 @@ func _physics_process(delta):
 			move_direction.x += 0.25
 			
 	if store_key == ["right", "up"] or store_key == ["up", "left"]:
-		print("should not be called")
 		move_direction.y += 0.25
 		if "right" in store_key: 
 			move_direction.x -= 0.25
 		elif "left" in store_key:
 			move_direction.x += 0.25
 
-	print(accumelation)
+	#print(accumelation)
 	
-	if move_direction.x != 0:
-		accumelation.x += 0.05
-		if accumelation.x > 3:
-			accumelation.x = 3
-	else:
-		accumelation.x = 0
+	
+	if store_key != []: 
+		if store_key == ["right"]:
+			accumelation_handler_hori("HORIZONTAL")
+		elif store_key == ["left"]:
+			accumelation_handler_hori("HORIZONTAL")
+		if store_key == ["up"]:
+			accumelation_handler_vert("VERTICAL")
+		elif store_key == ["down"]:
+			accumelation_handler_vert("VERTICAL")
+	
+	elif one_time == true and store_key not in [["right"], ["left"]]:
+		accumelation_handler_hori("null")
+	elif one_time == true and store_key not in [["up"], ["down"]]:
+		accumelation_handler_vert("null")
 
 	
-	if move_direction.y != 0:
-		accumelation.y += 0.05
-		if accumelation.y > 3:
-			accumelation.y = 3
-	else:
-		accumelation.y = 0
 
 	velocity = Vector2(move_direction * speed * accumelation)
 	print (velocity)
@@ -79,13 +80,50 @@ func _physics_process(delta):
 	move_and_slide()
 	
 
-#func speed_handler(acc):
-#	var dir = current_direction
-#	if dir == "right":
-#		move_direction.x = 1
+func accumelation_handler_vert(direction):
+	one_time = true
+	print(direction)
+	#stopper spilleren
+	if direction == "null":
+		print(accumelation.x)
+		if accumelation.x > 0:
+			accumelation.x -= 0.05
+		elif accumelation.y > 0:
+			accumelation.y -= 0.05
+		else:
+			print("exit")
+			one_time = false
+			return
+	#kører spilleren 
+	if direction == "VERTICAL":
+		if accumelation.y >= 3:
+			pass
+		elif accumelation.y <= 3:
+			accumelation.y += 0.05
+
+func accumelation_handler_hori(direction):
+	one_time = true
+	print(direction)
+	#stopper spilleren
+	if direction == "null":
+		print(accumelation.x)
+		if accumelation.x > 0:
+			accumelation.x -= 0.05
+		elif accumelation.y > 0:
+			accumelation.y -= 0.05
+		else:
+			print("exit")
+			one_time = false
+			return
+	#kjører	spilleren
+	if direction == "HORIZONTAL":
+		if accumelation.x >= 3:
+			pass
+		elif accumelation.x <= 3:
+			accumelation.x += 0.05
 	
-#	var force = move_direction * weight
-#	var tempo = force - speed
+
+
 	
 
 
