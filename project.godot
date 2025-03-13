@@ -14,6 +14,14 @@ config/name="Sosse_sompen"
 run/main_scene="res://Scene/Map/map_test.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 
+[file_customization]
+
+folder_colors={
+"res://Scene/": "red",
+"res://Script/": "orange",
+"res://Sprite/": "yellow"
+}
+
 [input]
 
 dir_Up={
