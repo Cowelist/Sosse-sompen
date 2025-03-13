@@ -1,5 +1,14 @@
-[gd_scene format=3 uid="uid://cv7uf6xf3i6oo"]
+[gd_scene load_steps=2 format=3 uid="uid://cv7uf6xf3i6oo"]
+
+[ext_resource type="PackedScene" uid="uid://4rwpigb5c07s" path="res://Scene/UI/Player_UI/Inventory/Sloth.tscn" id="1_717gh"]
 
 [node name="Hobar" type="HBoxContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Slot" parent="." instance=ExtResource("1_717gh")]
+layout_mode = 2
+
+[node name="Slot2" parent="." instance=ExtResource("1_717gh")]
+layout_mode = 2
+size_flags_horizontal = 10
