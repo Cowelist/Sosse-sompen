@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cv7uf6xf3i6oo"]
+
+[node name="Hobar" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
