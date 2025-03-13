@@ -1,10 +1,10 @@
-[gd_scene load_steps=11 format=4 uid="uid://db06d1pljxpqf"]
+[gd_scene load_steps=12 format=4 uid="uid://db06d1pljxpqf"]
 
 [ext_resource type="Texture2D" uid="uid://cjjrmnywj386h" path="res://Sprite/placeholder/PNG/spr_terrains.png" id="1_jxet1"]
 [ext_resource type="Texture2D" uid="uid://cqashxj1vl0ic" path="res://Sprite/placeholder/PNG/spr_structures_exterior.png" id="2_u6vlf"]
-[ext_resource type="Script" path="res://Script/Map_layout/Inn_and_out_player/hytte_utenfor.gd" id="3_ltumb"]
 [ext_resource type="PackedScene" uid="uid://bugitywkuf8k" path="res://Scene/Characters/Main_player/player_1.tscn" id="3_saqwi"]
 [ext_resource type="Script" path="res://Script/Map_layout/Inn_and_out_player/enter_inn.gd" id="4_mkkrv"]
+[ext_resource type="PackedScene" uid="uid://dxdbeqn2xmpve" path="res://Scene/Map/time_ui.tscn" id="5_qx0cb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_251o4"]
 texture = ExtResource("1_jxet1")
@@ -674,6 +674,10 @@ sources/0 = SubResource("TileSetAtlasSource_iq454")
 [sub_resource type="CircleShape2D" id="CircleShape2D_qkm7m"]
 radius = 39.5601
 
+[sub_resource type="GDScript" id="GDScript_l61os"]
+script/source = "extends Control
+"
+
 [node name="Node2D" type="Node2D"]
 
 [node name="terrain" type="TileMapLayer" parent="."]
@@ -687,7 +691,6 @@ visibility_layer = 7
 position = Vector2(36, -77)
 tile_map_data = PackedByteArray("AAAMACEAAAAJAAgAAAAMACIAAAAJAAgAAAANACEAAAAJAAcAAAAOACEAAAAFAAcAAAAPACEAAAAJAAcAAAAQACEAAAAJAAgAAAAQACIAAAAJAAgAAAAQACMAAAAJAAkAAAAMACMAAAAJAAkAAAAMACQAAAALAAgAAAANACQAAAAMAAgAAAAPACQAAAALAAgAAAAQACQAAAAMAAgAAAANACIAAAAFAAcAAAAOACIAAAAFAAcAAAAPACIAAAAFAAcAAAANACMAAAAFAAcAAAAOACMAAAAFAAcAAAAPACMAAAAFAAcAAAAOACAAAAAFAAcAAAA=")
 tile_set = SubResource("TileSet_gaggm")
-script = ExtResource("3_ltumb")
 
 [node name="Area2D" type="Area2D" parent="hytte_utenfor"]
 collision_layer = 0
@@ -702,5 +705,12 @@ shape = SubResource("CircleShape2D_qkm7m")
 [node name="Player1" parent="." instance=ExtResource("3_saqwi")]
 position = Vector2(321, 105)
 collision_layer = 2
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+
+[node name="Time Gui" parent="." instance=ExtResource("5_qx0cb")]
+offset_right = 121.0
+offset_bottom = 52.0
+script = SubResource("GDScript_l61os")
 
 [connection signal="body_entered" from="hytte_utenfor/Area2D" to="hytte_utenfor/Area2D" method="_on_body_entered"]
