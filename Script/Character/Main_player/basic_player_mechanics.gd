@@ -2,14 +2,13 @@ extends CharacterBody2D
 
 var friction = 1000
 
-var speed = 100
+var speed = 50
 #const max_speed = 100
 var weight = 60
 var accumelation = Vector2(1, 1)
 
 var current_direction = "none"
 
-var one_time = false
 var store_key = []
 
 
@@ -22,7 +21,6 @@ func _physics_process(delta):
 		move_direction.x += 1
 		store_key.append("right")
 		accumelation_handler_hori("HORIZONTAL")
-		print("Right being called")
 		
 	if Input.is_action_pressed("dir_Down"):
 		current_direction = "down"
@@ -31,7 +29,6 @@ func _physics_process(delta):
 		accumelation_handler_vert("VERTICAL")
 	
 	if Input.is_action_pressed("dir_Up"):
-		print("Up bring called")
 		current_direction = "up"
 		store_key.append("up")
 		move_direction.y -= 1
@@ -61,7 +58,6 @@ func _physics_process(delta):
 			move_direction.x += 0.25
 
 	
-	
 	print(accumelation)
 	#print(store_key)
 	#print(velocity.length())
@@ -70,80 +66,67 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, move_direction.x * speed, accumelation.x)
 #	elif store_key not in [["up"], ["down"]]: 
 	else:
-		print("Being called hori")
 		velocity.x = move_toward(velocity.x, 0, friction * delta)
 		
 	if velocity.length() <= 300 and (store_key == ["up"] or store_key == ["down"]):
 		velocity.y = move_toward(velocity.y, move_direction.y * speed, accumelation.y)
 #	elif store_key not in [["right"], ["left"]]: 
 	else:
-		print("Being called vert")
 		velocity.y = move_toward(velocity.y, 0, friction * delta)
 		
 	if velocity.length() <= 300 and store_key.size() > 1:
 		if ("right" in store_key and "left" in store_key) or ("up" in store_key and "down" in store_key):
-			print("Wrong")
-		else:
 			velocity.y = move_toward(velocity.y, move_direction.y * speed, accumelation.y)
 			velocity.x = move_toward(velocity.x, move_direction.x * speed, accumelation.x)
-#		else:
-#			velocity.x = move_toward(velocity.x, 0, friction * delta)
-#			velocity.y = move_toward(velocity.y, 0, friction * delta)
+		else:
+			velocity.x = move_toward(velocity.x, 0, friction * delta)
+			velocity.y = move_toward(velocity.y, 0, friction * delta)
 	#		accumelation_handler_hori("HORIZONTAL")
 	#		accumelation_handler_vert("VERTICAL")
 
 	
 
 	accumelation_handler()
-	print (velocity)
+	#print (velocity)
 	play_anim(move_direction)
 	move_and_slide()
 	
 func accumelation_handler():
+	accumelation_handler_stop()
 	if store_key != []: 
 		store_key = []
-	else:
-		accumelation_handler_stop()
-
 func accumelation_handler_stop():
-	if one_time == true and store_key not in [["right"], ["left"]]:
+	print("running every frame")
+	if "right" not in store_key and "left" not in store_key:
 #stopper spilleren
-		if accumelation.x > 0:
-			accumelation.x = max(accumelation.x - 0.1, 0)
-#			move_toward(accumelation.x, 0, 0.1)
+		if accumelation.x > 0.11:
+			accumelation.x = max(accumelation.x - 0.2, 0.1)
 		else:
-			print("exit")
-			one_time = false
-			return
-	elif one_time == true and store_key not in [["up"], ["down"]]:
+			accumelation.x = 0
+	if "up" not in store_key and "down" not in store_key:
+		print("Aeawea")
 #stopper spilleren
-		if accumelation.y > 0:
-			accumelation.y = max(accumelation.y - 0.1, 0)
+		if accumelation.y > 0.11:
+			accumelation.y = max(accumelation.y - 0.2, 0.1)
 		else:
-			print("exit")
-			one_time = false
-			return
+			accumelation.y = 0
 
 func accumelation_handler_vert(direction):
-	one_time = true
-	print(direction)
 	#kører spilleren 
 	if direction == "VERTICAL":
-		if accumelation.y >= 3:
+		if accumelation.y >= 7:
 			pass
-		elif accumelation.y <= 3:
-			accumelation.y += 0.5
+		elif accumelation.y <= 7:
+			accumelation.y += 0.1
 
 
 func accumelation_handler_hori(direction):
-	one_time = true
-	print(direction)
 	#kjører	spilleren
 	if direction == "HORIZONTAL":
-		if accumelation.x >= 3:
+		if accumelation.x >= 7:
 			pass
-		elif accumelation.x <= 3:
-			accumelation.x += 0.5
+		elif accumelation.x <= 7:
+			accumelation.x += 0.1
 
 func play_anim(movment):
 	var animation = $AnimatedSprite2D
