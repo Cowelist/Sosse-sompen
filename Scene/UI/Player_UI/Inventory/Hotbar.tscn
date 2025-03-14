@@ -1,14 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://cv7uf6xf3i6oo"]
+[gd_scene load_steps=4 format=3 uid="uid://cv7uf6xf3i6oo"]
 
-[ext_resource type="PackedScene" uid="uid://4rwpigb5c07s" path="res://Scene/UI/Player_UI/Inventory/Sloth.tscn" id="1_717gh"]
+[ext_resource type="Texture2D" uid="uid://dlanuh5os4r82" path="res://Sprite/placeholder/PNG/clock_ui.png" id="1_6g2i0"]
+[ext_resource type="Script" path="res://Script/Character/Main_player/Hotbars.gd" id="2_y53i5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjdyw"]
+atlas = ExtResource("1_6g2i0")
+region = Rect2(0, 0, 48.224, 48)
 
 [node name="Hobar" type="HBoxContainer"]
-offset_right = 40.0
-offset_bottom = 40.0
+z_index = 10
+anchors_preset = -1
+anchor_right = 0.087
+anchor_bottom = 0.105
+offset_top = 1.0
+offset_right = -0.224007
+offset_bottom = -19.04
+scale = Vector2(1, 1.4)
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
-[node name="Slot" parent="." instance=ExtResource("1_717gh")]
+[node name="Hotbar_1" type="TextureButton" parent="."]
 layout_mode = 2
+texture_normal = SubResource("AtlasTexture_sjdyw")
+script = ExtResource("2_y53i5")
 
-[node name="Slot2" parent="." instance=ExtResource("1_717gh")]
+[node name="Hotbar_2" type="TextureButton" parent="."]
 layout_mode = 2
-size_flags_horizontal = 10
+texture_normal = SubResource("AtlasTexture_sjdyw")
+script = ExtResource("2_y53i5")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 2
