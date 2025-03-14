@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=4 uid="uid://db06d1pljxpqf"]
+[gd_scene load_steps=15 format=4 uid="uid://db06d1pljxpqf"]
 
 [ext_resource type="Texture2D" uid="uid://cjjrmnywj386h" path="res://Sprite/placeholder/PNG/spr_terrains.png" id="1_jxet1"]
 [ext_resource type="Texture2D" uid="uid://cqashxj1vl0ic" path="res://Sprite/placeholder/PNG/spr_structures_exterior.png" id="2_u6vlf"]
 [ext_resource type="PackedScene" uid="uid://bugitywkuf8k" path="res://Scene/Characters/Main_player/player_1.tscn" id="3_saqwi"]
 [ext_resource type="Script" path="res://Script/Map_layout/Inn_and_out_player/enter_inn.gd" id="4_mkkrv"]
 [ext_resource type="PackedScene" uid="uid://dxdbeqn2xmpve" path="res://Scene/Map/time_ui.tscn" id="5_qx0cb"]
+[ext_resource type="Script" path="res://Script/UI/Map_Ui/TimeSystem.gd" id="6_to355"]
+[ext_resource type="Script" path="res://Script/UI/Map_Ui/Date_Time.gd" id="7_ek3fm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_251o4"]
 texture = ExtResource("1_jxet1")
@@ -678,6 +680,12 @@ radius = 39.5601
 script/source = "extends Control
 "
 
+[sub_resource type="Resource" id="Resource_fsihx"]
+script = ExtResource("7_ek3fm")
+Minutes = 0
+Hours = 0
+Days = 0
+
 [node name="Node2D" type="Node2D"]
 
 [node name="terrain" type="TileMapLayer" parent="."]
@@ -712,5 +720,9 @@ collision_layer = 2
 offset_right = 121.0
 offset_bottom = 52.0
 script = SubResource("GDScript_l61os")
+
+[node name="TimeSystem" type="Node" parent="."]
+script = ExtResource("6_to355")
+date_time = SubResource("Resource_fsihx")
 
 [connection signal="body_entered" from="hytte_utenfor/Area2D" to="hytte_utenfor/Area2D" method="_on_body_entered"]
