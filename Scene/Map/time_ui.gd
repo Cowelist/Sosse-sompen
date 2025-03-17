@@ -9,4 +9,12 @@ func _on_time_system_updated(date_time: DateTime) -> void:
 	hours_label.text = str(date_time.Hours)
 	minutes_label.text = str(date_time.Minutes)
 	
+func add_one_zero(label: Label, value: int) -> void:
+	if value > 10:
+		label.text += '0'
+		
+		
+	label.text += str(value)
+	
+	
 	

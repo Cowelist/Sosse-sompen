@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://db06d1pljxpqf"]
+[gd_scene load_steps=14 format=4 uid="uid://db06d1pljxpqf"]
 
 [ext_resource type="Texture2D" uid="uid://cjjrmnywj386h" path="res://Sprite/placeholder/PNG/spr_terrains.png" id="1_jxet1"]
 [ext_resource type="Texture2D" uid="uid://cqashxj1vl0ic" path="res://Sprite/placeholder/PNG/spr_structures_exterior.png" id="2_u6vlf"]
@@ -683,10 +683,6 @@ Minutes = 40
 Hours = 22
 Days = 0
 
-[sub_resource type="GDScript" id="GDScript_l61os"]
-script/source = "extends Control
-"
-
 [node name="Node2D" type="Node2D"]
 
 [node name="terrain" type="TileMapLayer" parent="."]
@@ -726,7 +722,6 @@ date_time = SubResource("Resource_fsihx")
 [node name="Time Gui" parent="CanvasLayer" instance=ExtResource("5_qx0cb")]
 offset_right = 121.0
 offset_bottom = 52.0
-script = SubResource("GDScript_l61os")
 
 [connection signal="body_entered" from="hytte_utenfor/Area2D" to="hytte_utenfor/Area2D" method="_on_body_entered"]
 [connection signal="updated" from="TimeSystem" to="CanvasLayer/Time Gui" method="_on_time_system_updated"]
