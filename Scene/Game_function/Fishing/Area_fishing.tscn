@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cmhjjeql7uyyw"]
 
-[ext_resource type="Script" path="res://Scene/Game_function/Fishing/area_fishing_zone.gd" id="1_ke551"]
+[ext_resource type="Script" path="res://Script/Character/area_fishing_zone.gd" id="1_ke551"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jyues"]
 size = Vector2(26, 11)
