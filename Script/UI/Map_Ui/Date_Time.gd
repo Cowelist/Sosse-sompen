@@ -1,7 +1,7 @@
 class_name DateTime extends Resource
 
 @export_range(0,59) var Seconds: int = 0
-@export_range(0,59) var Minutes: int = 0 
+@export_range(0,59) var Minutes: int = 0
 @export_range(0,23) var Hours: int = 0
 @export_range(0,10) var Days: int = 0
 
