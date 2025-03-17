@@ -676,15 +676,16 @@ sources/0 = SubResource("TileSetAtlasSource_iq454")
 [sub_resource type="CircleShape2D" id="CircleShape2D_qkm7m"]
 radius = 39.5601
 
+[sub_resource type="Resource" id="Resource_fsihx"]
+script = ExtResource("7_ek3fm")
+Seconds = 0
+Minutes = 40
+Hours = 22
+Days = 0
+
 [sub_resource type="GDScript" id="GDScript_l61os"]
 script/source = "extends Control
 "
-
-[sub_resource type="Resource" id="Resource_fsihx"]
-script = ExtResource("7_ek3fm")
-Minutes = 0
-Hours = 0
-Days = 0
 
 [node name="Node2D" type="Node2D"]
 
@@ -716,13 +717,16 @@ collision_layer = 2
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 
-[node name="Time Gui" parent="." instance=ExtResource("5_qx0cb")]
-offset_right = 121.0
-offset_bottom = 52.0
-script = SubResource("GDScript_l61os")
-
 [node name="TimeSystem" type="Node" parent="."]
 script = ExtResource("6_to355")
 date_time = SubResource("Resource_fsihx")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Time Gui" parent="CanvasLayer" instance=ExtResource("5_qx0cb")]
+offset_right = 121.0
+offset_bottom = 52.0
+script = SubResource("GDScript_l61os")
+
 [connection signal="body_entered" from="hytte_utenfor/Area2D" to="hytte_utenfor/Area2D" method="_on_body_entered"]
+[connection signal="updated" from="TimeSystem" to="CanvasLayer/Time Gui" method="_on_time_system_updated"]
