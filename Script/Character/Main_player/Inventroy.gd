@@ -1,7 +1,11 @@
 extends Node2D
 
+class_name Inventory
+
+signal updated
 
 @onready var Inventory_space = [null, null]
+#@export var slots: Array[InventorySlot]
 
 func _ready() -> void:
 	print("Inventory being called")
@@ -14,8 +18,9 @@ func add_item_to_inventory(new_item):
 		if Inventory_space[i] == null:
 			Inventory_space[i] = new_item
 			return
-	print("Inventory full")
-	print(Inventory_space)
+		else:
+			print("Inventory full")
+			print(Inventory_space)
 
 func remove_item_from_inventory(item):
 	for i in range(Inventory_space.size()):

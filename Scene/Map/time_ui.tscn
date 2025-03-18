@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxdbeqn2xmpve"]
+[gd_scene load_steps=4 format=3 uid="uid://dxdbeqn2xmpve"]
 
+[ext_resource type="Script" path="res://Scene/Map/time_ui.gd" id="1_3iocb"]
 [ext_resource type="Texture2D" uid="uid://dlanuh5os4r82" path="res://Sprite/placeholder/PNG/clock_ui.png" id="1_pbeqv"]
 [ext_resource type="LabelSettings" uid="uid://c55jq0vqm2yyf" path="res://Scene/Font/LabelSettings/time_gui_labelsettings.tres" id="2_bdytm"]
 
@@ -8,6 +9,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_3iocb")
 
 [node name="backrgound" type="NinePatchRect" parent="."]
 layout_mode = 0
@@ -31,7 +33,7 @@ offset_left = 55.0
 offset_top = 3.0
 offset_right = 95.0
 offset_bottom = 27.0
-text = "999"
+text = "1"
 label_settings = ExtResource("2_bdytm")
 metadata/_edit_lock_ = true
 
@@ -57,7 +59,7 @@ layout_mode = 0
 offset_left = 1.0
 offset_right = 25.0
 offset_bottom = 24.0
-text = "23"
+text = "22"
 label_settings = ExtResource("2_bdytm")
 metadata/_edit_lock_ = true
 
@@ -75,7 +77,7 @@ layout_mode = 0
 offset_left = 34.0
 offset_right = 58.0
 offset_bottom = 24.0
-text = "59"
+text = "20"
 label_settings = ExtResource("2_bdytm")
 metadata/_edit_lock_ = true
 

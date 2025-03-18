@@ -1,4 +1,9 @@
-extends Button
+extends TextureButton
+
+#@onready var 
+
+#func update_to_slot(slot: Inventory) -> void:
+#	pass
 
 
 # Called when the node enters the scene tree for the first time.

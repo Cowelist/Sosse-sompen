@@ -1,14 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://cv7uf6xf3i6oo"]
+[gd_scene load_steps=3 format=3 uid="uid://cv7uf6xf3i6oo"]
 
-[ext_resource type="PackedScene" uid="uid://4rwpigb5c07s" path="res://Scene/UI/Player_UI/Inventory/Sloth.tscn" id="1_717gh"]
+[ext_resource type="Script" path="res://Script/Character/Main_player/Hotbar_container.gd" id="1_0dfoh"]
+[ext_resource type="PackedScene" uid="uid://gnjlfkdgp51w" path="res://Scene/UI/Player_UI/Inventory/hotvar_slot.tscn" id="4_vqccy"]
 
-[node name="Hobar" type="HBoxContainer"]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Hotbar" type="HBoxContainer"]
+offset_right = 100.0
+offset_bottom = 48.0
+script = ExtResource("1_0dfoh")
 
-[node name="Slot" parent="." instance=ExtResource("1_717gh")]
+[node name="Hotvar_slot" parent="." instance=ExtResource("4_vqccy")]
 layout_mode = 2
 
-[node name="Slot2" parent="." instance=ExtResource("1_717gh")]
+[node name="Hotvar_slot2" parent="." instance=ExtResource("4_vqccy")]
 layout_mode = 2
-size_flags_horizontal = 10
