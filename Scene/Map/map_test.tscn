@@ -1,13 +1,15 @@
-[gd_scene load_steps=16 format=4 uid="uid://db06d1pljxpqf"]
+[gd_scene load_steps=19 format=4 uid="uid://db06d1pljxpqf"]
 
 [ext_resource type="PackedScene" uid="uid://cmhjjeql7uyyw" path="res://Scene/Game_function/Fishing/Area_fishing.tscn" id="1_5sp31"]
 [ext_resource type="Texture2D" uid="uid://cjjrmnywj386h" path="res://Sprite/placeholder/PNG/spr_terrains.png" id="1_jxet1"]
 [ext_resource type="Texture2D" uid="uid://cqashxj1vl0ic" path="res://Sprite/placeholder/PNG/spr_structures_exterior.png" id="2_u6vlf"]
 [ext_resource type="PackedScene" uid="uid://bugitywkuf8k" path="res://Scene/Characters/Main_player/player_1.tscn" id="3_saqwi"]
 [ext_resource type="Script" path="res://Script/Map_layout/Inn_and_out_player/enter_inn.gd" id="4_mkkrv"]
+[ext_resource type="PackedScene" uid="uid://c2txpkernapfb" path="res://Scene/Item/fishing_rods.tscn" id="4_xqvfm"]
 [ext_resource type="PackedScene" uid="uid://dxdbeqn2xmpve" path="res://Scene/Map/time_ui.tscn" id="5_qx0cb"]
 [ext_resource type="Script" path="res://Script/UI/Map_Ui/TimeSystem.gd" id="6_to355"]
 [ext_resource type="Script" path="res://Script/UI/Map_Ui/Date_Time.gd" id="7_ek3fm"]
+[ext_resource type="PackedScene" uid="uid://cv7uf6xf3i6oo" path="res://Scene/UI/Player_UI/Inventory/Hotbar.tscn" id="9_1g63r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_251o4"]
 texture = ExtResource("1_jxet1")
@@ -670,9 +672,15 @@ texture = ExtResource("2_u6vlf")
 13:10/0 = 0
 14:10/0 = 0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_hsv3x"]
+resource_name = "Collectables"
+scenes/2/scene = ExtResource("4_xqvfm")
+
 [sub_resource type="TileSet" id="TileSet_gaggm"]
 physics_layer_0/collision_layer = 1
+navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_iq454")
+sources/1 = SubResource("TileSetScenesCollectionSource_hsv3x")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qkm7m"]
 radius = 39.5601
@@ -730,6 +738,19 @@ date_time = SubResource("Resource_fsihx")
 offset_right = 121.0
 offset_bottom = 52.0
 script = SubResource("GDScript_l61os")
+
+[node name="Hotbar" parent="CanvasLayer" instance=ExtResource("9_1g63r")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 982.0
+offset_top = -78.0
+offset_right = 1082.0
+offset_bottom = -30.0
+grow_vertical = 0
+
+[node name="Collectable" parent="." instance=ExtResource("4_xqvfm")]
+position = Vector2(984, 74)
 
 [connection signal="body_entered" from="hytte_utenfor/Area2D" to="hytte_utenfor/Area2D" method="_on_body_entered"]
 [connection signal="updated" from="TimeSystem" to="CanvasLayer/Time Gui" method="_on_time_system_updated"]

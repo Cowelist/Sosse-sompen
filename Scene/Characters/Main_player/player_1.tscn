@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://Script/Character/Main_player/basic_player_mechanics.gd" id="1_6ebfk"]
 [ext_resource type="Texture2D" uid="uid://bq7rsdub82mmr" path="res://Sprite/placeholder/sprites/characters/player.png" id="2_81pdr"]
 [ext_resource type="PackedScene" uid="uid://bwx8n7vref23e" path="res://Scene/Characters/Main_player/Inventory/Inventroy.tscn" id="3_hw00c"]
-[ext_resource type="PackedScene" uid="uid://cv7uf6xf3i6oo" path="res://Scene/UI/Player_UI/Inventory/Hotbar.tscn" id="4_huwht"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3m2qq"]
 atlas = ExtResource("2_81pdr")
@@ -294,6 +293,8 @@ animations = [{
 radius = 7.0
 height = 22.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mtpqh"]
+
 [node name="Player1" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_6ebfk")
@@ -306,14 +307,6 @@ animation = &"walk_back"
 position = Vector2(0, 8)
 zoom = Vector2(2, 2)
 
-[node name="Hobar" parent="Camera2D" instance=ExtResource("4_huwht")]
-visible = false
-offset_left = 129.0
-offset_top = 107.0
-offset_right = 281.0
-offset_bottom = 155.0
-scale = Vector2(1, 0.998846)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 7)
 shape = SubResource("CapsuleShape2D_8ld86")
@@ -322,3 +315,11 @@ shape = SubResource("CapsuleShape2D_8ld86")
 light_mask = 0
 
 [node name="Inventory" parent="." instance=ExtResource("3_hw00c")]
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, 6)
+shape = SubResource("CapsuleShape2D_mtpqh")
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

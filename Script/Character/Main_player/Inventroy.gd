@@ -17,7 +17,7 @@ func add_item_to_inventory(new_item):
 	for i in range (Inventory_space.size()):
 		if Inventory_space[i] == null:
 			Inventory_space[i] = new_item
-			emit_signal("updated_inventory")
+			emit_signal("updated_inventory", Inventory_space)
 			return
 		else:
 			print("Inventory full")
