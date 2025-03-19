@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctrtwcui56uk2"]
+
+[ext_resource type="Texture2D" uid="uid://df7pthiwx73pw" path="res://Sprite/placeholder/PNG/InventoryRect.png" id="1_ydxdu"]
+[ext_resource type="PackedScene" uid="uid://dq45cwsd3evxo" path="res://Scene/UI/inventory/slots_inventory.tscn" id="2_rurui"]
+
+[node name="Inventory_gui" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 119.0
+offset_bottom = 101.0
+texture = ExtResource("1_ydxdu")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 0
+offset_right = 216.0
+offset_bottom = 47.0
+columns = 5
+
+[node name="Panel" parent="NinePatchRect/GridContainer" instance=ExtResource("2_rurui")]
+layout_mode = 2
+
+[node name="Panel2" parent="NinePatchRect/GridContainer" instance=ExtResource("2_rurui")]
+layout_mode = 2
+
+[node name="Panel3" parent="NinePatchRect/GridContainer" instance=ExtResource("2_rurui")]
+layout_mode = 2
+
+[node name="Panel4" parent="NinePatchRect/GridContainer" instance=ExtResource("2_rurui")]
+layout_mode = 2
+
+[node name="Panel5" parent="NinePatchRect/GridContainer" instance=ExtResource("2_rurui")]
+layout_mode = 2
+
+[node name="Panel6" parent="NinePatchRect/GridContainer" instance=ExtResource("2_rurui")]
+layout_mode = 2
+
+[node name="Panel7" parent="NinePatchRect/GridContainer" instance=ExtResource("2_rurui")]
+layout_mode = 2
