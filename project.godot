@@ -21,6 +21,7 @@ folder_colors={
 "res://Script/": "orange",
 "res://Sprite/": "yellow",
 "res://addons/": "purple",
+"res://ai/": "purple",
 "res://demo/": "purple"
 }
 
