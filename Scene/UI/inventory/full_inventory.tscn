@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bh75wx5gvkcoo"]
 
+[ext_resource type="Script" path="res://Script/UI/inventory_gui/Inventory_gui.gd" id="1_ibe80"]
 [ext_resource type="Texture2D" uid="uid://df7pthiwx73pw" path="res://Sprite/placeholder/PNG/InventoryRect.png" id="1_olibu"]
-[ext_resource type="Script" path="res://Scene/UI/inventory/inventory.gd" id="1_rejgs"]
 [ext_resource type="PackedScene" uid="uid://dq45cwsd3evxo" path="res://Scene/UI/inventory/slots_inventory.tscn" id="2_ko3km"]
 
 [node name="Inventory_gui" type="Control"]
@@ -10,7 +10,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 205.0
 offset_bottom = 40.0
-script = ExtResource("1_rejgs")
+script = ExtResource("1_ibe80")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 0
@@ -26,7 +26,7 @@ patch_margin_bottom = 6
 custom_minimum_size = Vector2(0, 5)
 layout_mode = 0
 offset_left = 5.0
-offset_top = 7.0
+offset_top = 9.0
 offset_right = 221.0
 offset_bottom = 54.0
 columns = 5
