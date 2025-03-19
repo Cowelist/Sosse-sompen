@@ -19,7 +19,9 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 folder_colors={
 "res://Scene/": "red",
 "res://Script/": "orange",
-"res://Sprite/": "yellow"
+"res://Sprite/": "yellow",
+"res://addons/": "purple",
+"res://demo/": "purple"
 }
 
 [input]
