@@ -299,10 +299,10 @@ height = 22.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mtpqh"]
 
-[node name="Player1" type="CharacterBody2D" node_paths=PackedStringArray("inventory")]
+[node name="Player1" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_6ebfk")
-inventory = NodePath("Inventory")
+inventory = NodePath("PlayerInventory.tres")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kek80")
