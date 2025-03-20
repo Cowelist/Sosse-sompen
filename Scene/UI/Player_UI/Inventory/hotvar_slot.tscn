@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://gnjlfkdgp51w"]
+[gd_scene load_steps=4 format=3 uid="uid://01qtvmnwew"]
 
-[ext_resource type="Script" path="res://Script/Character/hotbar_slot.gd" id="2_ahtp5"]
+[ext_resource type="Script" path="res://Scene/UI/Player_UI/Inventory/hotbar_slot.gd" id="2_ahtp5"]
 [ext_resource type="Texture2D" uid="uid://dlanuh5os4r82" path="res://Sprite/placeholder/PNG/clock_ui.png" id="2_db1hv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cs7mo"]

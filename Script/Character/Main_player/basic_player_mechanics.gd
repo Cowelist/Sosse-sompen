@@ -12,6 +12,7 @@ var current_direction = "none"
 var store_key = []
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 @export var inventory: Inventory
 
 var right = "Dummy"
@@ -32,6 +33,8 @@ func _ready() -> void:
 		up = "2_dir_Up"
 =======
 >>>>>>> parent of 1b339c2 (merge main to enemy 2)
+=======
+>>>>>>> parent of c62c97e (????)
 
 #Funksjonen er for spiller bevegelsen
 func _physics_process(delta): 
@@ -182,6 +185,4 @@ func play_anim(movment):
 		else:
 			animation.play("idle_front")
 
-func _on_hurtbox_area_entered(area: Area2D) -> void:
-	if area.has_method("collect"):
-		area.collect(inventory)
+	

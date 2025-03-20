@@ -2,7 +2,7 @@ extends Node2D
 
 class_name Inventory
 
-signal updated_inventory
+signal updated
 
 @onready var Inventory_space = [null, null]
 #@export var slots: Array[InventorySlot]
@@ -17,7 +17,6 @@ func add_item_to_inventory(new_item):
 	for i in range (Inventory_space.size()):
 		if Inventory_space[i] == null:
 			Inventory_space[i] = new_item
-			emit_signal("updated_inventory", Inventory_space)
 			return
 		else:
 			print("Inventory full")
@@ -27,7 +26,7 @@ func remove_item_from_inventory(item):
 	for i in range(Inventory_space.size()):
 		if Inventory_space[i] == item:
 			Inventory_space[i] = null
-			emit_signal("updated_inventory")
+			print("item has been removed")
 			return
 		elif Inventory_space[i] != item:
 			print("can not remove item since it is not in inventory")
