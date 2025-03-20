@@ -1,11 +1,20 @@
 extends Resource
 
-class_name inventory
+class_name Inventory
 
-@export var itmes: Array[InventoryItem]
+signal updated
+
+@export var items: Array[InventoryItem] = []
+
+func _init() -> void:
+	if items == null:
+		items = []
 
 func insert(item: InventoryItem):
-	for i in range(itmes.size()):
-		if !itmes[i]:
-			itmes[i] = item
-			break
+	for i in range(items.size()):
+		if !items[i]:
+			items[i] = item
+			updated.emit()  # Always fire after inserting
+			return
+	items.append(item)
+	updated.emit()

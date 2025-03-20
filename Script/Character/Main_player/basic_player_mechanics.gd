@@ -11,8 +11,12 @@ var current_direction = "none"
 
 var store_key = []
 
-@export var inventory: Inventory
+#@export var inventory: Inventory
 
+func _ready() -> void:
+	add_to_group("player")  # Ensure player is in "player" group for Collectable.gd	
+#	if inventory == null:
+#		inventory = preload("res://Script/UI/inventory_gui/Resource_Items/PlayerInventory.tres").duplicate()
 
 #Funksjonen er for spiller bevegelsen
 func _physics_process(delta): 
@@ -165,4 +169,5 @@ func play_anim(movment):
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.has_method("collect"):
-		area.collect(inventory)
+		area.collect(PlayerData.inventory)
+#		area.collect(inventory)
