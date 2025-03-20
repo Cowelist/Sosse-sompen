@@ -162,4 +162,5 @@ func play_anim(movment):
 			animation.play("idle_front")
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.
+	if area.has_method("collect"):
+		area.collect()
