@@ -712,7 +712,7 @@ position = Vector2(230, 541)
 rotation = -1.0472
 shape = SubResource("CircleShape2D_qkm7m")
 
-[node name="Player1" parent="." instance=ExtResource("3_saqwi")]
+[node name="Player1" parent="." groups=["player"] instance=ExtResource("3_saqwi")]
 position = Vector2(321, 105)
 collision_layer = 2
 
@@ -730,6 +730,7 @@ offset_bottom = 52.0
 script = SubResource("GDScript_l61os")
 
 [node name="Enemy" parent="." instance=ExtResource("8_5erd5")]
+position = Vector2(582, 309)
 
 [connection signal="body_entered" from="hytte_utenfor/Area2D" to="hytte_utenfor/Area2D" method="_on_body_entered"]
 [connection signal="updated" from="TimeSystem" to="CanvasLayer/Time Gui" method="_on_time_system_updated"]

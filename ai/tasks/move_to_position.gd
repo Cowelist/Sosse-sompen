@@ -6,7 +6,7 @@ extends BTAction
 @export var dir_var_y:=&"dir_y"
 
 @export var speed_var = 10
-@export var tolerance = 10
+@export var tolerance = 5
 
 
 func _tick(_delta: float) -> Status:

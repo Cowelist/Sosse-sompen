@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=10 format=3 uid="uid://h2eknpt88ryi"]
+[gd_resource type="BehaviorTree" load_steps=13 format=3 uid="uid://h2eknpt88ryi"]
 
 [ext_resource type="Script" path="res://ai/tasks/choose_random_position.gd" id="1_lkcet"]
 [ext_resource type="Script" path="res://ai/tasks/move_to_position.gd" id="2_dm7d8"]
@@ -22,17 +22,27 @@ target_position_var = &"pos"
 dir_var_x = &"dir_x"
 dir_var_y = &"dir_y"
 speed_var = 10
-tolerance = 10
+tolerance = 5
 
 [sub_resource type="BTWait" id="BTWait_jy1s6"]
 
+[sub_resource type="BTRandomWait" id="BTRandomWait_kurno"]
+max_duration = 4.0
+
+[sub_resource type="BTSequence" id="BTSequence_8qmrr"]
+custom_name = "Idle Sequence"
+children = [SubResource("BTRandomWait_kurno")]
+
 [sub_resource type="BTSequence" id="BTSequence_m3dsr"]
 custom_name = "Random move squence"
-children = [SubResource("BTConsolePrint_ohtwt"), SubResource("BTAction_mqnl5"), SubResource("BTAction_1ntt1"), SubResource("BTWait_jy1s6")]
+children = [SubResource("BTConsolePrint_ohtwt"), SubResource("BTAction_mqnl5"), SubResource("BTAction_1ntt1"), SubResource("BTWait_jy1s6"), SubResource("BTSequence_8qmrr")]
+
+[sub_resource type="BTSequence" id="BTSequence_n6akj"]
+custom_name = "Target_enemy"
 
 [sub_resource type="BTSelector" id="BTSelector_i5wuy"]
 custom_name = "Selector"
-children = [SubResource("BTSequence_m3dsr")]
+children = [SubResource("BTSequence_m3dsr"), SubResource("BTSequence_n6akj")]
 
 [resource]
 blackboard_plan = SubResource("BlackboardPlan_e45c2")

@@ -341,7 +341,7 @@ frame_progress = 0.421977
 shape = SubResource("CircleShape2D_6h5tx")
 disabled = true
 
-[node name="BTPlayer" type="BTPlayer" parent="."]
+[node name="BTPlayer" type="BTPlayer" parent="." groups=["enemy"]]
 behavior_tree = ExtResource("3_sys7r")
 blackboard_plan = SubResource("BlackboardPlan_ab6y4")
 
