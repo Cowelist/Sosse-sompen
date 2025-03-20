@@ -11,6 +11,7 @@ var current_direction = "none"
 
 var store_key = []
 
+<<<<<<< HEAD
 @export var inventory: Inventory
 
 var right = "Dummy"
@@ -29,29 +30,32 @@ func _ready() -> void:
 		left = "2_dir_Left"
 		down = "2_dir_Down"
 		up = "2_dir_Up"
+=======
+>>>>>>> parent of 1b339c2 (merge main to enemy 2)
 
 #Funksjonen er for spiller bevegelsen
 func _physics_process(delta): 
 	var move_direction = Vector2.ZERO
-	if Input.is_action_pressed(right):
+	
+	if Input.is_action_pressed("dir_Right"):
 		current_direction = "right"
 		move_direction.x += 1
 		store_key.append("right")
 		accumelation_handler_hori("HORIZONTAL")
 		
-	if Input.is_action_pressed(down):
+	if Input.is_action_pressed("dir_Down"):
 		current_direction = "down"
 		move_direction.y += 1
 		store_key.append("down")
 		accumelation_handler_vert("VERTICAL")
 	
-	if Input.is_action_pressed(up):
+	if Input.is_action_pressed("dir_Up"):
 		current_direction = "up"
 		store_key.append("up")
 		move_direction.y -= 1
 		accumelation_handler_vert("VERTICAL")
 
-	if Input.is_action_pressed(left):
+	if Input.is_action_pressed("dir_Left"):
 		current_direction = "left"
 		store_key.append("left")
 		move_direction.x -= 1
@@ -75,6 +79,9 @@ func _physics_process(delta):
 			move_direction.x += 0.25
 
 	
+	print(accumelation)
+	#print(store_key)
+	#print(velocity.length())
 	velocity = Vector2(move_direction * speed * accumelation)
 	if velocity.length() <= 300 and (store_key == ["right"] or store_key == ["left"]):
 		velocity.x = move_toward(velocity.x, move_direction.x * speed, accumelation.x)
@@ -101,6 +108,7 @@ func _physics_process(delta):
 	
 
 	accumelation_handler()
+	#print (velocity)
 	play_anim(move_direction)
 	move_and_slide()
 	
@@ -109,6 +117,7 @@ func accumelation_handler():
 	if store_key != []: 
 		store_key = []
 func accumelation_handler_stop():
+	print("running every frame")
 	if "right" not in store_key and "left" not in store_key:
 #stopper spilleren
 		if accumelation.x > 0.11:
@@ -116,6 +125,7 @@ func accumelation_handler_stop():
 		else:
 			accumelation.x = 0
 	if "up" not in store_key and "down" not in store_key:
+		print("Aeawea")
 #stopper spilleren
 		if accumelation.y > 0.11:
 			accumelation.y = max(accumelation.y - 0.2, 0.1)
