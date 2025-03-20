@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://c2txpkernapfb"]
+
+[ext_resource type="PackedScene" uid="uid://bl7mf6ol7shxq" path="res://Scene/Item/fishing_rod.tscn" id="1_lrtok"]
+[ext_resource type="Resource" uid="uid://bnxauaawn6yk2" path="res://Script/UI/inventory_gui/Resource_Items/FishingRod_Resource.tres" id="2_uxuio"]
+[ext_resource type="Texture2D" uid="uid://ch06fx7gh18ru" path="res://Sprite/placeholder/free-fishing-game-assets-pixel-art-pack/3 Objects/Fish-rod.png" id="2_wo3p3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jtey7"]
+resource_local_to_scene = true
+size = Vector2(16, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnloi"]
+atlas = ExtResource("2_wo3p3")
+region = Rect2(0, 0, 16, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ttbep"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pnloi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Fishing_rod" instance=ExtResource("1_lrtok")]
+itemRes = ExtResource("2_uxuio")
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_jtey7")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_ttbep")
