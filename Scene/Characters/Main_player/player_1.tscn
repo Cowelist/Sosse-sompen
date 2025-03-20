@@ -302,7 +302,8 @@ inventory = NodePath("Inventory")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kek80")
-animation = &"walk_back"
+animation = &"walk_side"
+frame_progress = 0.724453
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 8)
