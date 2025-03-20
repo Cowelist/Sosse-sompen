@@ -1,9 +1,8 @@
-[gd_resource type="Resource" script_class="Inventory" load_steps=4 format=3 uid="uid://crxmr8ffppy8b"]
+[gd_resource type="Resource" script_class="inventory" load_steps=3 format=3 uid="uid://crxmr8ffppy8b"]
 
 [ext_resource type="Script" path="res://Script/UI/inventory_gui/InventoryItem.gd" id="1_8wb50"]
 [ext_resource type="Script" path="res://Script/UI/inventory_gui/inventory_pickup.gd" id="2_7ej63"]
-[ext_resource type="Resource" uid="uid://bnxauaawn6yk2" path="res://Script/UI/inventory_gui/Resource_Items/FishingRod_Resource.tres" id="2_fcnbg"]
 
 [resource]
 script = ExtResource("2_7ej63")
-itmes = Array[ExtResource("1_8wb50")]([ExtResource("2_fcnbg"), ExtResource("2_fcnbg"), ExtResource("2_fcnbg")])
+itmes = Array[ExtResource("1_8wb50")]([null, null, null, null, null, null, null, null, null, null, null, null])
