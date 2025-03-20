@@ -13,13 +13,15 @@ script = ExtResource("1_lkcet")
 range_min_dir = 40.0
 range_max_dir = 100.0
 position_var = &"pos"
-dir_var = &"dir"
+dir_var_x = &"dir_x"
+dir_var_y = &"dir_y"
 
 [sub_resource type="BTAction" id="BTAction_1ntt1"]
 script = ExtResource("2_dm7d8")
 target_position_var = &"pos"
-dir_var = &"dir"
-speed_var = 40
+dir_var_x = &"dir_x"
+dir_var_y = &"dir_y"
+speed_var = 10
 tolerance = 10
 
 [sub_resource type="BTWait" id="BTWait_jy1s6"]
