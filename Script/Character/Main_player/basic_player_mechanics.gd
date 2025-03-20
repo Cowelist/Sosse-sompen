@@ -11,8 +11,6 @@ var current_direction = "none"
 
 var store_key = []
 
-@export var inventory: Inventory
-
 
 #Funksjonen er for spiller bevegelsen
 func _physics_process(delta): 
@@ -163,6 +161,4 @@ func play_anim(movment):
 		else:
 			animation.play("idle_front")
 
-func _on_hurtbox_area_entered(area: Area2D) -> void:
-	if area.has_method("collect"):
-		area.collect(inventory)
+	

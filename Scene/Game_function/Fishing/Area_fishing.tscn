@@ -3,18 +3,12 @@
 [ext_resource type="Script" path="res://Script/Character/area_fishing_zone.gd" id="1_ke551"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jyues"]
-size = Vector2(64, 32.5)
+size = Vector2(26, 11)
 
-[node name="Interaction_zone_fishing" type="Area2D"]
-light_mask = 0
-visibility_layer = 2
-collision_layer = 0
-collision_mask = 2
+[node name="Node2D" type="Node2D"]
 script = ExtResource("1_ke551")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(19, 10.75)
-shape = SubResource("RectangleShape2D_jyues")
+[node name="Area2D" type="Area2D" parent="."]
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_jyues")
