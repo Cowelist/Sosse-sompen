@@ -18,3 +18,9 @@ func insert(item: InventoryItem):
 			return
 	items.append(item)
 	updated.emit()
+	
+func remove_item(item: InventoryItem) -> void:
+	var index = items.find(item)
+	if index != -1:
+		items[index] = null
+		updated.emit()

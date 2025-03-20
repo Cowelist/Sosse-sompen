@@ -167,7 +167,26 @@ func play_anim(movment):
 		else:
 			animation.play("idle_front")
 
+func _drop_process(delta):
+	if Input.is_action_just_pressed("drop_item"):
+		if PlayerData.inventory.items.size() > 0 and PlayerData.inventory.items[0]:
+			drop_item(PlayerData.inventory.items[0])
+
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.has_method("collect"):
 		area.collect(PlayerData.inventory)
 #		area.collect(inventory)
+
+func drop_item(item: InventoryItem):
+	# 1) Remove it from the player's inventory
+	PlayerData.inventory.remove_item(item)
+
+	# 2) Create a dropped-node instance in the world
+	var drop_instance = preload("res://Scene/Item/collectables.tscn").instantiate()
+	drop_instance.itemRes = item
+	
+	# 3) Place it at the player's current position so it appears "on the ground"
+	drop_instance.global_position = global_position
+	
+	# 4) Add the instance to the scene tree so it is visible and collectible
+	get_tree().get_current_scene().add_child(drop_instance)

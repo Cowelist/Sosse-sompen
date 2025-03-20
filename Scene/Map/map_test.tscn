@@ -730,9 +730,22 @@ offset_right = 121.0
 offset_bottom = 52.0
 
 [node name="InventoryGui" parent="CanvasLayer" instance=ExtResource("8_13yvk")]
+process_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_bottom = 20.0
+grow_vertical = 2
 
 [node name="Fishing_rod" parent="." instance=ExtResource("11_j71hs")]
 position = Vector2(852, 85)
+
+[node name="Fishing_rod2" parent="." instance=ExtResource("11_j71hs")]
+position = Vector2(530, 98)
+
+[node name="Fishing_rod3" parent="." instance=ExtResource("11_j71hs")]
+position = Vector2(512, 262)
 
 [connection signal="body_entered" from="hytte_utenfor/Area2D" to="hytte_utenfor/Area2D" method="_on_body_entered"]
 [connection signal="updated" from="TimeSystem" to="CanvasLayer/Time Gui" method="_on_time_system_updated"]
