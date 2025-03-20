@@ -15,6 +15,7 @@ var store_key = []
 <<<<<<< HEAD
 @export var inventory: Inventory
 
+<<<<<<< HEAD
 var right = "Dummy"
 var left = "Dummy"
 var down = "Dummy"
@@ -35,6 +36,8 @@ func _ready() -> void:
 >>>>>>> parent of 1b339c2 (merge main to enemy 2)
 =======
 >>>>>>> parent of c62c97e (????)
+=======
+>>>>>>> parent of c507b06 (Merge Character to main)
 
 #Funksjonen er for spiller bevegelsen
 func _physics_process(delta): 
