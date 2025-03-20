@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 [gd_scene load_steps=16 format=4 uid="uid://db06d1pljxpqf"]
+=======
+[gd_scene load_steps=15 format=4 uid="uid://db06d1pljxpqf"]
+>>>>>>> parent of 63d0d85 (?)
 =======
 [gd_scene load_steps=15 format=4 uid="uid://db06d1pljxpqf"]
 >>>>>>> parent of 63d0d85 (?)
@@ -9,6 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://bugitywkuf8k" path="res://Scene/Characters/Main_player/player_1.tscn" id="3_saqwi"]
 [ext_resource type="Script" path="res://Script/Map_layout/Inn_and_out_player/enter_inn.gd" id="4_mkkrv"]
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+[ext_resource type="PackedScene" uid="uid://dphf6444t5t32" path="res://Scene/Characters/Main_player/player_2.tscn" id="5_buuru"]
+>>>>>>> parent of 63d0d85 (?)
 =======
 [ext_resource type="PackedScene" uid="uid://dphf6444t5t32" path="res://Scene/Characters/Main_player/player_2.tscn" id="5_buuru"]
 >>>>>>> parent of 63d0d85 (?)
