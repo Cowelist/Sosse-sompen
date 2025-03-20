@@ -1,9 +1,9 @@
-[gd_scene load_steps=43 format=3 uid="uid://bbjupat0wmpkj"]
+[gd_scene load_steps=43 format=3 uid="uid://bugitywkuf8k"]
 
 [ext_resource type="Script" path="res://Script/Character/Main_player/basic_player_mechanics.gd" id="1_6ebfk"]
 [ext_resource type="Texture2D" uid="uid://bq7rsdub82mmr" path="res://Sprite/placeholder/sprites/characters/player.png" id="2_81pdr"]
-[ext_resource type="PackedScene" uid="uid://cc5t1dkk5aou5" path="res://Scene/Characters/Main_player/Inventory/Inventroy.tscn" id="3_hw00c"]
-[ext_resource type="PackedScene" uid="uid://dlc2nnniay0a7" path="res://Scene/UI/Player_UI/Inventory/Hotbar.tscn" id="4_huwht"]
+[ext_resource type="PackedScene" uid="uid://bwx8n7vref23e" path="res://Scene/Characters/Main_player/Inventory/Inventroy.tscn" id="3_hw00c"]
+[ext_resource type="PackedScene" uid="uid://cv7uf6xf3i6oo" path="res://Scene/UI/Player_UI/Inventory/Hotbar.tscn" id="4_huwht"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3m2qq"]
 atlas = ExtResource("2_81pdr")
