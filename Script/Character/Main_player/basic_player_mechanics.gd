@@ -12,29 +12,52 @@ var current_direction = "none"
 var store_key = []
 
 
+
+var life = 3
+
+
+@export var inventory: Inventory
+
+var right = "Dummy"
+var left = "Dummy"
+var down = "Dummy"
+var up = "Dummy"
+
+func _ready() -> void:
+	add_to_group("player")
+	if self.name == "Player1":
+		right = "1_dir_Right"
+		left = "1_dir_Left"
+		down = "1_dir_Down"
+		up = "1_dir_Up"
+	elif self.name == "Player2":
+		right = "2_dir_Right"
+		left = "2_dir_Left"
+		down = "2_dir_Down"
+		up = "2_dir_Up"
+
 #Funksjonen er for spiller bevegelsen
 func _physics_process(delta): 
 	var move_direction = Vector2.ZERO
-	
-	if Input.is_action_pressed("dir_Right"):
+	if Input.is_action_pressed(right):
 		current_direction = "right"
 		move_direction.x += 1
 		store_key.append("right")
 		accumelation_handler_hori("HORIZONTAL")
 		
-	if Input.is_action_pressed("dir_Down"):
+	if Input.is_action_pressed(down):
 		current_direction = "down"
 		move_direction.y += 1
 		store_key.append("down")
 		accumelation_handler_vert("VERTICAL")
 	
-	if Input.is_action_pressed("dir_Up"):
+	if Input.is_action_pressed(up):
 		current_direction = "up"
 		store_key.append("up")
 		move_direction.y -= 1
 		accumelation_handler_vert("VERTICAL")
 
-	if Input.is_action_pressed("dir_Left"):
+	if Input.is_action_pressed(left):
 		current_direction = "left"
 		store_key.append("left")
 		move_direction.x -= 1
@@ -58,9 +81,6 @@ func _physics_process(delta):
 			move_direction.x += 0.25
 
 	
-	print(accumelation)
-	#print(store_key)
-	#print(velocity.length())
 	velocity = Vector2(move_direction * speed * accumelation)
 	if velocity.length() <= 300 and (store_key == ["right"] or store_key == ["left"]):
 		velocity.x = move_toward(velocity.x, move_direction.x * speed, accumelation.x)
@@ -87,7 +107,6 @@ func _physics_process(delta):
 	
 
 	accumelation_handler()
-	#print (velocity)
 	play_anim(move_direction)
 	move_and_slide()
 	
@@ -96,7 +115,6 @@ func accumelation_handler():
 	if store_key != []: 
 		store_key = []
 func accumelation_handler_stop():
-	print("running every frame")
 	if "right" not in store_key and "left" not in store_key:
 #stopper spilleren
 		if accumelation.x > 0.11:
@@ -104,7 +122,6 @@ func accumelation_handler_stop():
 		else:
 			accumelation.x = 0
 	if "up" not in store_key and "down" not in store_key:
-		print("Aeawea")
 #stopper spilleren
 		if accumelation.y > 0.11:
 			accumelation.y = max(accumelation.y - 0.2, 0.1)
@@ -161,4 +178,33 @@ func play_anim(movment):
 		else:
 			animation.play("idle_front")
 
+
+func _drop_process(delta):
+	if Input.is_action_just_pressed("drop_item"):
+		if PlayerData.inventory.items.size() > 0 and PlayerData.inventory.items[0]:
+			drop_item(PlayerData.inventory.items[0])
+
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	if area.has_method("collect"):
+		area.collect(PlayerData.inventory)
+	if area.has_method("collect"):
+		area.collect(inventory)
+	print("enemy enterd")
+	if life <= 0:
+		get_tree().change_scene_to_file("res://Scene/start_screen.tscn")
+		life = 2
+#		area.collect(inventory)
+
+func drop_item(item: InventoryItem):
+	# 1) Remove it from the player's inventory
+	PlayerData.inventory.remove_item(item)
+
+	# 2) Create a dropped-node instance in the world
+	var drop_instance = preload("res://Scene/Item/collectables.tscn").instantiate()
+	drop_instance.itemRes = item
 	
+	# 3) Place it at the player's current position so it appears "on the ground"
+	drop_instance.global_position = global_position
+	
+	# 4) Add the instance to the scene tree so it is visible and collectible
+	get_tree().get_current_scene().add_child(drop_instance)
