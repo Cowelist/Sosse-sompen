@@ -11,16 +11,16 @@ var current_direction = "none"
 
 var store_key = []
 
-<<<<<<< HEAD
+
 var life = 3
-=======
+
 #@export var inventory: Inventory
 
 func _ready() -> void:
 	add_to_group("player")  # Ensure player is in "player" group for Collectable.gd	
 #	if inventory == null:
 #		inventory = preload("res://Script/UI/inventory_gui/Resource_Items/PlayerInventory.tres").duplicate()
->>>>>>> origin/ui-Item
+
 
 #Funksjonen er for spiller bevegelsen
 func _physics_process(delta): 
@@ -171,7 +171,6 @@ func play_anim(movment):
 		else:
 			animation.play("idle_front")
 
-<<<<<<< HEAD
 	
 
 
@@ -180,7 +179,6 @@ func _on_hurtbox_body_entered(body: CharacterBody2D) -> void:
 	if life <= 0:
 		get_tree().change_scene_to_file("res://Scene/start_screen.tscn")
 		life = 2
-=======
 func _drop_process(delta):
 	if Input.is_action_just_pressed("drop_item"):
 		if PlayerData.inventory.items.size() > 0 and PlayerData.inventory.items[0]:
@@ -204,4 +202,3 @@ func drop_item(item: InventoryItem):
 	
 	# 4) Add the instance to the scene tree so it is visible and collectible
 	get_tree().get_current_scene().add_child(drop_instance)
->>>>>>> origin/ui-Item
