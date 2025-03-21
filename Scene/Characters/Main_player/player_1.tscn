@@ -307,7 +307,7 @@ animation = &"idle_front"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 8)
-zoom = Vector2(2, 2)
+zoom = Vector2(5, 5)
 
 [node name="Hobar" parent="Camera2D" instance=ExtResource("4_huwht")]
 offset_left = 129.0

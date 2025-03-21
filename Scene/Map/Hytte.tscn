@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://dpbmsde11qm6v"]
+[gd_scene load_steps=10 format=4 uid="uid://dpbmsde11qm6v"]
 
 [ext_resource type="Texture2D" uid="uid://cu3m2xt8pgk34" path="res://Sprite/placeholder/Pixel Crawler - Free Pack/Environment/Structures/Buildings/Floors.png" id="1_j137n"]
 [ext_resource type="Texture2D" uid="uid://br7mh2pu12ctu" path="res://Sprite/placeholder/Pixel Crawler - Free Pack/Environment/Structures/Buildings/Walls.png" id="2_eskfg"]
 [ext_resource type="PackedScene" uid="uid://bugitywkuf8k" path="res://Scene/Characters/Main_player/player_1.tscn" id="3_y4ghb"]
 [ext_resource type="Script" path="res://Script/Map_layout/Inn_and_out_player/utav_hytte.gd" id="4_3hjy7"]
+[ext_resource type="PackedScene" uid="uid://dcefmvnxtdn66" path="res://Scene/Characters/Enemy/enemy.tscn" id="4_m5yx8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_82ltj"]
 texture = ExtResource("2_eskfg")
@@ -942,8 +943,80 @@ script = ExtResource("4_3hjy7")
 position = Vector2(93, 123)
 shape = SubResource("CircleShape2D_dngb7")
 
-[node name="Player1" parent="." instance=ExtResource("3_y4ghb")]
+[node name="Enemy18" parent="." groups=["enemy"] instance=ExtResource("4_m5yx8")]
+position = Vector2(708, 432)
+
+[node name="Player1" parent="." groups=["player"] instance=ExtResource("3_y4ghb")]
 position = Vector2(961, 264)
 collision_layer = 2
+
+[node name="Enemy" parent="." groups=["enemy"] instance=ExtResource("4_m5yx8")]
+position = Vector2(894, 347)
+
+[node name="Enemy2" parent="." groups=["enemy"] instance=ExtResource("4_m5yx8")]
+position = Vector2(394, 434)
+
+[node name="Enemy3" parent="." groups=["enemy"] instance=ExtResource("4_m5yx8")]
+position = Vector2(550, 208)
+
+[node name="Enemy4" parent="." groups=["enemy"] instance=ExtResource("4_m5yx8")]
+position = Vector2(612, 284)
+
+[node name="Enemy5" parent="." groups=["enemy"] instance=ExtResource("4_m5yx8")]
+position = Vector2(473, 370)
+
+[node name="Enemy6" parent="." groups=["enemy"] instance=ExtResource("4_m5yx8")]
+position = Vector2(1003, 344)
+
+[node name="Enemy7" parent="." groups=["enemy"] instance=ExtResource("4_m5yx8")]
+position = Vector2(924, 408)
+
+[node name="Enemy8" parent="." groups=["enemy"] instance=ExtResource("4_m5yx8")]
+position = Vector2(746, 276)
+
+[node name="Enemy9" parent="." groups=["enemy"] instance=ExtResource("4_m5yx8")]
+position = Vector2(817, 175)
+
+[node name="Enemy10" parent="." groups=["enemy"] instance=ExtResource("4_m5yx8")]
+position = Vector2(910, 173)
+
+[node name="Enemy11" parent="." groups=["enemy"] instance=ExtResource("4_m5yx8")]
+position = Vector2(936, 475)
+
+[node name="Enemy12" parent="." groups=["enemy"] instance=ExtResource("4_m5yx8")]
+position = Vector2(803, 369)
+
+[node name="Enemy13" parent="." groups=["enemy"] instance=ExtResource("4_m5yx8")]
+position = Vector2(501, 371)
+
+[node name="Enemy14" parent="." groups=["enemy"] instance=ExtResource("4_m5yx8")]
+position = Vector2(630, 421)
+
+[node name="Enemy15" parent="." groups=["enemy"] instance=ExtResource("4_m5yx8")]
+position = Vector2(1141, 347)
+
+[node name="Enemy16" parent="." groups=["enemy"] instance=ExtResource("4_m5yx8")]
+position = Vector2(629, 172)
+
+[node name="Enemy17" parent="." groups=["enemy"] instance=ExtResource("4_m5yx8")]
+position = Vector2(778, 477)
+
+[node name="Enemy19" parent="." groups=["enemy"] instance=ExtResource("4_m5yx8")]
+position = Vector2(476, 512)
+
+[node name="Enemy20" parent="." groups=["enemy"] instance=ExtResource("4_m5yx8")]
+position = Vector2(845, 243)
+
+[node name="Enemy21" parent="." groups=["enemy"] instance=ExtResource("4_m5yx8")]
+position = Vector2(1054, 433)
+
+[node name="Enemy22" parent="." groups=["enemy"] instance=ExtResource("4_m5yx8")]
+position = Vector2(1026, 216)
+
+[node name="Enemy23" parent="." groups=["enemy"] instance=ExtResource("4_m5yx8")]
+position = Vector2(614, 320)
+
+[node name="Enemy24" parent="." groups=["enemy"] instance=ExtResource("4_m5yx8")]
+position = Vector2(253, 424)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

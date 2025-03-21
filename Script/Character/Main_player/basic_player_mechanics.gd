@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var friction = 1000
 
-var speed = 50
+var speed = 10
 #const max_speed = 100
 var weight = 60
 var accumelation = Vector2(1, 1)
