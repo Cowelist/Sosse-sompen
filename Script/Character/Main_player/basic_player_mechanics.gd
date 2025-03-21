@@ -11,6 +11,7 @@ var current_direction = "none"
 
 var store_key = []
 
+var life = 3
 
 #Funksjonen er for spiller bevegelsen
 func _physics_process(delta): 
@@ -162,3 +163,10 @@ func play_anim(movment):
 			animation.play("idle_front")
 
 	
+
+
+func _on_hurtbox_body_entered(body: CharacterBody2D) -> void:
+	print("enemy enterd")
+	if life <= 0:
+		get_tree().change_scene_to_file("res://Scene/start_screen.tscn")
+		life = 2
