@@ -1,17 +1,13 @@
-[gd_scene load_steps=16 format=4 uid="uid://h2xtrsk1od1j"]
+[gd_scene load_steps=15 format=4 uid="uid://db06d1pljxpqf"]
 
 [ext_resource type="Texture2D" uid="uid://cjjrmnywj386h" path="res://Sprite/placeholder/PNG/spr_terrains.png" id="1_jxet1"]
 [ext_resource type="Texture2D" uid="uid://cqashxj1vl0ic" path="res://Sprite/placeholder/PNG/spr_structures_exterior.png" id="2_u6vlf"]
-[ext_resource type="PackedScene" uid="uid://bbjupat0wmpkj" path="res://Scene/Characters/Main_player/player_1.tscn" id="3_saqwi"]
+[ext_resource type="PackedScene" uid="uid://bugitywkuf8k" path="res://Scene/Characters/Main_player/player_1.tscn" id="3_saqwi"]
 [ext_resource type="Script" path="res://Script/Map_layout/Inn_and_out_player/enter_inn.gd" id="4_mkkrv"]
-<<<<<<< HEAD
 [ext_resource type="PackedScene" path="res://Scene/Characters/Main_player/player_2.tscn" id="5_buuru"]
-=======
->>>>>>> Enemy
 [ext_resource type="PackedScene" uid="uid://dqwxwku63eghl" path="res://Scene/Map/time_ui.tscn" id="5_qx0cb"]
 [ext_resource type="Script" path="res://Script/UI/Map_Ui/TimeSystem.gd" id="6_to355"]
 [ext_resource type="Script" path="res://Script/UI/Map_Ui/Date_Time.gd" id="7_ek3fm"]
-[ext_resource type="PackedScene" uid="uid://dcefmvnxtdn66" path="res://Scene/Characters/Enemy/enemy.tscn" id="8_5erd5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_251o4"]
 texture = ExtResource("1_jxet1")
@@ -688,10 +684,6 @@ Minutes = 40
 Hours = 22
 Days = 0
 
-[sub_resource type="GDScript" id="GDScript_l61os"]
-script/source = "extends Control
-"
-
 [node name="Node2D" type="Node2D"]
 
 [node name="terrain" type="TileMapLayer" parent="."]
@@ -716,9 +708,11 @@ position = Vector2(230, 541)
 rotation = -1.0472
 shape = SubResource("CircleShape2D_qkm7m")
 
-[node name="Player1" parent="." groups=["player"] instance=ExtResource("3_saqwi")]
+[node name="Player1" parent="." instance=ExtResource("3_saqwi")]
 position = Vector2(321, 105)
-collision_layer = 2
+
+[node name="Player2" parent="." instance=ExtResource("5_buuru")]
+position = Vector2(442, 130)
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 
@@ -731,16 +725,6 @@ date_time = SubResource("Resource_fsihx")
 [node name="Time Gui" parent="CanvasLayer" instance=ExtResource("5_qx0cb")]
 offset_right = 121.0
 offset_bottom = 52.0
-script = SubResource("GDScript_l61os")
-
-[node name="Enemy" parent="." groups=["enemy"] instance=ExtResource("8_5erd5")]
-position = Vector2(582, 309)
-
-[node name="Enemy3" parent="." groups=["enemy"] instance=ExtResource("8_5erd5")]
-position = Vector2(582, 309)
-
-[node name="Enemy2" parent="." groups=["enemy"] instance=ExtResource("8_5erd5")]
-position = Vector2(582, 309)
 
 [connection signal="body_entered" from="hytte_utenfor/Area2D" to="hytte_utenfor/Area2D" method="_on_body_entered"]
 [connection signal="updated" from="TimeSystem" to="CanvasLayer/Time Gui" method="_on_time_system_updated"]

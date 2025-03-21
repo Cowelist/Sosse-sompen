@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlc2nnniay0a7"]
+[gd_scene load_steps=3 format=3 uid="uid://cv7uf6xf3i6oo"]
 
 [ext_resource type="Script" path="res://Script/Character/Main_player/Hotbar_container.gd" id="1_0dfoh"]
-[ext_resource type="PackedScene" uid="uid://01qtvmnwew" path="res://Scene/UI/Player_UI/Inventory/hotvar_slot.tscn" id="4_vqccy"]
+[ext_resource type="PackedScene" uid="uid://gnjlfkdgp51w" path="res://Scene/UI/Player_UI/Inventory/hotvar_slot.tscn" id="4_vqccy"]
 
 [node name="Hotbar" type="HBoxContainer"]
 offset_right = 100.0
