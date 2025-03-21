@@ -25,6 +25,7 @@ func _ready() -> void:
 
 
 
+var life = 3
 
 #Funksjonen er for spiller bevegelsen
 func _physics_process(delta): 
