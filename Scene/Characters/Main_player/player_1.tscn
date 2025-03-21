@@ -1,8 +1,12 @@
-[gd_scene load_steps=43 format=3 uid="uid://bugitywkuf8k"]
+[gd_scene load_steps=43 format=3 uid="uid://bbjupat0wmpkj"]
 
 [ext_resource type="Script" path="res://Script/Character/Main_player/basic_player_mechanics.gd" id="1_6ebfk"]
 [ext_resource type="Texture2D" uid="uid://bq7rsdub82mmr" path="res://Sprite/placeholder/sprites/characters/player.png" id="2_81pdr"]
 [ext_resource type="PackedScene" uid="uid://cc5t1dkk5aou5" path="res://Scene/Characters/Main_player/Inventory/Inventroy.tscn" id="3_hw00c"]
+<<<<<<< HEAD
+=======
+[ext_resource type="PackedScene" uid="uid://dlc2nnniay0a7" path="res://Scene/UI/Player_UI/Inventory/Hotbar.tscn" id="4_huwht"]
+>>>>>>> Enemy
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3m2qq"]
 atlas = ExtResource("2_81pdr")
@@ -293,19 +297,24 @@ animations = [{
 radius = 7.0
 height = 22.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mtpqh"]
-
 [node name="Player1" type="CharacterBody2D"]
-collision_layer = 2
+z_index = 10
 script = ExtResource("1_6ebfk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kek80")
-animation = &"walk_back"
+animation = &"idle_front"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 8)
 zoom = Vector2(2, 2)
+
+[node name="Hobar" parent="Camera2D" instance=ExtResource("4_huwht")]
+offset_left = 129.0
+offset_top = 107.0
+offset_right = 281.0
+offset_bottom = 155.0
+scale = Vector2(1, 0.998846)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 7)
@@ -315,13 +324,3 @@ shape = SubResource("CapsuleShape2D_8ld86")
 light_mask = 0
 
 [node name="Inventory" parent="." instance=ExtResource("3_hw00c")]
-
-[node name="Hurtbox" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(0, 6)
-shape = SubResource("CapsuleShape2D_mtpqh")
-
-[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

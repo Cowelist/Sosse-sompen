@@ -12,9 +12,12 @@ var current_direction = "none"
 var store_key = []
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 var life = 3
+=======
+>>>>>>> parent of 42d7c4e (50/ life function)
 
 #@export var inventory: Inventory
 
@@ -181,6 +184,7 @@ func play_anim(movment):
 			animation.play("idle_front")
 
 	
+<<<<<<< HEAD
 
 
 func _on_hurtbox_body_entered(body: CharacterBody2D) -> void:
@@ -216,3 +220,5 @@ func drop_item(item: InventoryItem):
 	get_tree().get_current_scene().add_child(drop_instance)
 =======
 >>>>>>> parent of 453b588 (merge ui items to character 2)
+=======
+>>>>>>> parent of 42d7c4e (50/ life function)
