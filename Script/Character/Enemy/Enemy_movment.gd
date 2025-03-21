@@ -15,16 +15,22 @@ func _physics_process(delta: float) -> void:
 	elif dir.y < 0:
 		current_direction = "up"
 	
-	print("Det her vel", + dir)
 	play_anim(dir)
 	move_and_slide()
 
 func movment_x(dir_x, speed):
 	velocity.x = dir_x * speed
-	print("Det her dir _x", + velocity)
 func movment_y(dir_y, speed):
 	velocity.y = dir_y * speed
-	print("Det her dir _y", + velocity)
+
+
+func check_for_self(node):
+	if node == self:
+		return true 
+	else:
+		return false
+
+
 
 
 func play_anim(move_dir):
