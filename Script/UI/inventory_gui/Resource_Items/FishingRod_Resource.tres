@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://bnxauaawn6yk2"]
+
+[ext_resource type="Script" path="res://Script/UI/inventory_gui/InventoryItem.gd" id="1_7gmy7"]
+[ext_resource type="Texture2D" uid="uid://ch06fx7gh18ru" path="res://Sprite/placeholder/free-fishing-game-assets-pixel-art-pack/3 Objects/Fish-rod.png" id="2_kcrht"]
+
+[resource]
+script = ExtResource("1_7gmy7")
+name = "FishingRod"
+texture = ExtResource("2_kcrht")
