@@ -1,6 +1,6 @@
 extends Node2D
 
-class_name H_Inventory
+#class_name Inventory
 
 signal updated_inventory
 

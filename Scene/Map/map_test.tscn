@@ -1,17 +1,15 @@
-[gd_scene load_steps=17 format=4 uid="uid://db06d1pljxpqf"]
+[gd_scene load_steps=15 format=4 uid="uid://db06d1pljxpqf"]
 
 [ext_resource type="Texture2D" uid="uid://cjjrmnywj386h" path="res://Sprite/placeholder/PNG/spr_terrains.png" id="1_jxet1"]
 [ext_resource type="Texture2D" uid="uid://cqashxj1vl0ic" path="res://Sprite/placeholder/PNG/spr_structures_exterior.png" id="2_u6vlf"]
 [ext_resource type="PackedScene" uid="uid://bugitywkuf8k" path="res://Scene/Characters/Main_player/player_1.tscn" id="3_saqwi"]
 [ext_resource type="Script" path="res://Script/Map_layout/Inn_and_out_player/enter_inn.gd" id="4_mkkrv"]
+[ext_resource type="PackedScene" path="res://Scene/Characters/Main_player/player_2.tscn" id="5_buuru"]
 [ext_resource type="PackedScene" uid="uid://dxdbeqn2xmpve" path="res://Scene/Map/time_ui.tscn" id="5_qx0cb"]
 [ext_resource type="Script" path="res://Script/UI/Map_Ui/TimeSystem.gd" id="6_to355"]
 [ext_resource type="Script" path="res://Script/UI/Map_Ui/Date_Time.gd" id="7_ek3fm"]
-[ext_resource type="Script" path="res://Scene/Map/canvas_layer.gd" id="7_vnb0l"]
-[ext_resource type="PackedScene" uid="uid://bchtrjxfc5n8y" path="res://Scene/UI/Player_UI/Inventory/inventory_gui.tscn" id="8_13yvk"]
-[ext_resource type="PackedScene" uid="uid://c2txpkernapfb" path="res://Scene/Item/fishing_rods.tscn" id="11_j71hs"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x227k"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_251o4"]
 texture = ExtResource("1_jxet1")
 1:1/0 = 0
 2:1/0 = 0
@@ -525,7 +523,7 @@ texture = ExtResource("1_jxet1")
 30:28/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_k6awi"]
-sources/0 = SubResource("TileSetAtlasSource_x227k")
+sources/0 = SubResource("TileSetAtlasSource_251o4")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iq454"]
 texture = ExtResource("2_u6vlf")
@@ -713,6 +711,9 @@ shape = SubResource("CircleShape2D_qkm7m")
 [node name="Player1" parent="." instance=ExtResource("3_saqwi")]
 position = Vector2(321, 105)
 
+[node name="Player2" parent="." instance=ExtResource("5_buuru")]
+position = Vector2(442, 130)
+
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 
 [node name="TimeSystem" type="Node" parent="."]
@@ -720,32 +721,10 @@ script = ExtResource("6_to355")
 date_time = SubResource("Resource_fsihx")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-process_mode = 3
-script = ExtResource("7_vnb0l")
 
 [node name="Time Gui" parent="CanvasLayer" instance=ExtResource("5_qx0cb")]
 offset_right = 121.0
 offset_bottom = 52.0
 
-[node name="InventoryGui" parent="CanvasLayer" instance=ExtResource("8_13yvk")]
-process_mode = 3
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -20.0
-offset_bottom = 20.0
-grow_vertical = 2
-
-[node name="Fishing_rod" parent="." instance=ExtResource("11_j71hs")]
-position = Vector2(852, 85)
-
-[node name="Fishing_rod2" parent="." instance=ExtResource("11_j71hs")]
-position = Vector2(530, 98)
-
-[node name="Fishing_rod3" parent="." instance=ExtResource("11_j71hs")]
-position = Vector2(512, 262)
-
 [connection signal="body_entered" from="hytte_utenfor/Area2D" to="hytte_utenfor/Area2D" method="_on_body_entered"]
 [connection signal="updated" from="TimeSystem" to="CanvasLayer/Time Gui" method="_on_time_system_updated"]
-[connection signal="closed" from="CanvasLayer/InventoryGui" to="." method="_on_inventory_gui_closed"]
-[connection signal="opened" from="CanvasLayer/InventoryGui" to="." method="_on_inventory_gui_opened"]
