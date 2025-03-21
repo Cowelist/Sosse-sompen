@@ -25,6 +25,7 @@ func _ready() -> void:
 
 
 
+
 #Funksjonen er for spiller bevegelsen
 func _physics_process(delta): 
 	var move_direction = Vector2.ZERO
@@ -182,6 +183,7 @@ func _on_hurtbox_body_entered(body: CharacterBody2D) -> void:
 	if life <= 0:
 		get_tree().change_scene_to_file("res://Scene/start_screen.tscn")
 		life = 2
+
 
 func _drop_process(delta):
 	if Input.is_action_just_pressed("drop_item"):
