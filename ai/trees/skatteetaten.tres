@@ -72,12 +72,12 @@ script = ExtResource("3_224rc")
 group = &"player"
 target_variable = &"target"
 
-[sub_resource type="BBNode" id="BBNode_vlxtv"]
+[sub_resource type="BBNode" id="BBNode_moox1"]
 saved_value = NodePath("AnimationPlayer")
 resource_name = "AnimationPlayer"
 
 [sub_resource type="BTPlayAnimation" id="BTPlayAnimation_mmk6o"]
-animation_player = SubResource("BBNode_vlxtv")
+animation_player = SubResource("BBNode_moox1")
 animation_name = &"Warning"
 
 [sub_resource type="BTAction" id="BTAction_cindu"]

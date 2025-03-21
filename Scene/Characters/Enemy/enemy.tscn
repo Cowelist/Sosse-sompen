@@ -1,7 +1,9 @@
-[gd_scene load_steps=44 format=3 uid="uid://dcefmvnxtdn66"]
+[gd_scene load_steps=47 format=3 uid="uid://dcefmvnxtdn66"]
 
 [ext_resource type="Texture2D" uid="uid://cybt5oayuryi7" path="res://Sprite/placeholder/sprites/characters/slime.png" id="1_hf0ya"]
 [ext_resource type="Script" path="res://Script/Character/Enemy/Enemy_movment.gd" id="1_hvgar"]
+[ext_resource type="BehaviorTree" uid="uid://h2eknpt88ryi" path="res://ai/trees/skatteetaten.tres" id="3_jrd6w"]
+[ext_resource type="Texture2D" uid="uid://cl3uhadp6u5tv" path="res://Sprite/placeholder/RPG_Exclamation_Mark_Animation.png" id="4_uwpfi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_50aic"]
 atlas = ExtResource("1_hf0ya")
@@ -363,10 +365,10 @@ tracks/2/path = NodePath("Sprite2D:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.133333, 0.2, 0.266667, 0.3, 0.333333, 0.4, 0.466667, 0.5, 0.533333, 0.566667, 0.6, 0.633333, 0.666667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.0333333, 0.1, 0.133333, 0.2, 0.266667, 0.3, 0.333333, 0.4, 0.466667, 0.5, 0.533333, 0.566667, 0.6, 0.633333, 0.666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0872665, -0.0872665, -0.116355, -0.174533, -0.174533, 0.174533, 0.174533, -0.174533, -0.174533, -0.174533, 0.174533, 0.174533, -0.174533, -0.174533, 0.174533]
+"values": [0.0872665, 0.0290888, -0.0872665, -0.116355, -0.174533, -0.174533, 0.174533, 0.174533, -0.174533, -0.174533, -0.174533, 0.174533, 0.174533, -0.174533, -0.174533, 0.174533]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_utdoh"]
@@ -374,6 +376,10 @@ _data = {
 "RESET": SubResource("Animation_dra1j"),
 "Warning": SubResource("Animation_82ob8")
 }
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_45fif"]
+radius = 7.0
+height = 16.0
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_hvgar")
@@ -388,6 +394,7 @@ shape = SubResource("CircleShape2D_6h5tx")
 disabled = true
 
 [node name="BTPlayer" type="BTPlayer" parent="."]
+behavior_tree = ExtResource("3_jrd6w")
 blackboard_plan = SubResource("BlackboardPlan_qgxju")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
@@ -407,7 +414,20 @@ libraries = {
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0)
+z_index = 7
 position = Vector2(0, -7)
 rotation = -0.0872665
+texture = ExtResource("4_uwpfi")
 region_enabled = true
 region_rect = Rect2(21.0795, 0, 6.24303, 16)
+
+[node name="Enemy_hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy_hitbox"]
+position = Vector2(0, 3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_45fif")
+
+[connection signal="body_entered" from="Enemy_hitbox" to="." method="_on_enemy_hitbox_body_entered"]

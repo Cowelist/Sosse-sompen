@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var animation_sprite = $Enemy_movment
 
 var current_direction = "none"
-
+var life = 3
 func _physics_process(delta: float) -> void:
 	var dir = velocity
 	if velocity.x > 0:
@@ -14,6 +14,10 @@ func _physics_process(delta: float) -> void:
 		current_direction = "down"
 	elif dir.y < 0:
 		current_direction = "up"
+	
+	if life <= 0:
+		get_tree().change_scene_to_file("res://Scene/start_screen.tscn")
+		life = 2
 	
 	play_anim(dir)
 	move_and_slide()
@@ -62,3 +66,7 @@ func play_anim(move_dir):
 			animation_sprite.play("walk_front")
 		else:
 			animation_sprite.play("idle_front")
+
+
+func _on_enemy_hitbox_body_entered(body: CharacterBody2D) -> void:
+	$CPUParticles2D.emitting = true
