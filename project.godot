@@ -14,6 +14,10 @@ config/name="Sosse_sompen"
 run/main_scene="res://Scene/Map/map_test.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 
+[autoload]
+
+PlayerData="*res://Script/UI/inventory_gui/Player_Data.gd"
+
 [file_customization]
 
 folder_colors={

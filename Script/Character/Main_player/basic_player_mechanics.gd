@@ -11,30 +11,11 @@ var current_direction = "none"
 
 var store_key = []
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 
 var life = 3
-=======
->>>>>>> parent of 42d7c4e (50/ life function)
-
-#@export var inventory: Inventory
-
-func _ready() -> void:
-	add_to_group("player")  # Ensure player is in "player" group for Collectable.gd	
-#	if inventory == null:
-#		inventory = preload("res://Script/UI/inventory_gui/Resource_Items/PlayerInventory.tres").duplicate()
 
 
-
-
-var life = 3
-=======
-var life = 3
->>>>>>> parent of 453b588 (merge ui items to character 2)
-=======
 @export var inventory: Inventory
 
 var right = "Dummy"
@@ -43,6 +24,7 @@ var down = "Dummy"
 var up = "Dummy"
 
 func _ready() -> void:
+	add_to_group("player")
 	if self.name == "Player1":
 		right = "1_dir_Right"
 		left = "1_dir_Left"
@@ -53,7 +35,6 @@ func _ready() -> void:
 		left = "2_dir_Left"
 		down = "2_dir_Down"
 		up = "2_dir_Up"
->>>>>>> parent of 4a47598 (merge enemy to character2)
 
 #Funksjonen er for spiller bevegelsen
 func _physics_process(delta): 
@@ -197,18 +178,6 @@ func play_anim(movment):
 		else:
 			animation.play("idle_front")
 
-<<<<<<< HEAD
-	
-<<<<<<< HEAD
-
-
-func _on_hurtbox_body_entered(body: CharacterBody2D) -> void:
-	print("enemy enterd")
-	if life <= 0:
-		get_tree().change_scene_to_file("res://Scene/start_screen.tscn")
-		life = 2
-<<<<<<< HEAD
-
 
 func _drop_process(delta):
 	if Input.is_action_just_pressed("drop_item"):
@@ -218,6 +187,12 @@ func _drop_process(delta):
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.has_method("collect"):
 		area.collect(PlayerData.inventory)
+	if area.has_method("collect"):
+		area.collect(inventory)
+	print("enemy enterd")
+	if life <= 0:
+		get_tree().change_scene_to_file("res://Scene/start_screen.tscn")
+		life = 2
 #		area.collect(inventory)
 
 func drop_item(item: InventoryItem):
@@ -233,12 +208,3 @@ func drop_item(item: InventoryItem):
 	
 	# 4) Add the instance to the scene tree so it is visible and collectible
 	get_tree().get_current_scene().add_child(drop_instance)
-=======
->>>>>>> parent of 453b588 (merge ui items to character 2)
-=======
->>>>>>> parent of 42d7c4e (50/ life function)
-=======
-func _on_hurtbox_area_entered(area: Area2D) -> void:
-	if area.has_method("collect"):
-		area.collect(inventory)
->>>>>>> parent of 4a47598 (merge enemy to character2)
