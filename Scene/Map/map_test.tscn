@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cqashxj1vl0ic" path="res://Sprite/placeholder/PNG/spr_structures_exterior.png" id="2_u6vlf"]
 [ext_resource type="PackedScene" uid="uid://bugitywkuf8k" path="res://Scene/Characters/Main_player/player_1.tscn" id="3_saqwi"]
 [ext_resource type="Script" path="res://Script/Map_layout/Inn_and_out_player/enter_inn.gd" id="4_mkkrv"]
-[ext_resource type="PackedScene" uid="uid://dphf6444t5t32" path="res://Scene/Characters/Main_player/player_2.tscn" id="5_buuru"]
-[ext_resource type="PackedScene" uid="uid://dxdbeqn2xmpve" path="res://Scene/Map/time_ui.tscn" id="5_qx0cb"]
+[ext_resource type="PackedScene" path="res://Scene/Characters/Main_player/player_2.tscn" id="5_buuru"]
+[ext_resource type="PackedScene" uid="uid://dqwxwku63eghl" path="res://Scene/Map/time_ui.tscn" id="5_qx0cb"]
 [ext_resource type="Script" path="res://Script/UI/Map_Ui/TimeSystem.gd" id="6_to355"]
 [ext_resource type="Script" path="res://Script/UI/Map_Ui/Date_Time.gd" id="7_ek3fm"]
 

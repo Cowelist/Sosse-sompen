@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Script/Character/Main_player/basic_player_mechanics.gd" id="1_6ebfk"]
 [ext_resource type="Texture2D" uid="uid://bq7rsdub82mmr" path="res://Sprite/placeholder/sprites/characters/player.png" id="2_81pdr"]
-[ext_resource type="PackedScene" uid="uid://bwx8n7vref23e" path="res://Scene/Characters/Main_player/Inventory/Inventroy.tscn" id="3_hw00c"]
+[ext_resource type="PackedScene" uid="uid://cc5t1dkk5aou5" path="res://Scene/Characters/Main_player/Inventory/Inventroy.tscn" id="3_hw00c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3m2qq"]
 atlas = ExtResource("2_81pdr")
