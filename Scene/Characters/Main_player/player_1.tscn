@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Script/Character/Main_player/basic_player_mechanics.gd" id="1_6ebfk"]
 [ext_resource type="Texture2D" uid="uid://bq7rsdub82mmr" path="res://Sprite/placeholder/sprites/characters/player.png" id="2_81pdr"]
-[ext_resource type="PackedScene" uid="uid://cc5t1dkk5aou5" path="res://Scene/Characters/Main_player/Inventory/Inventroy.tscn" id="3_hw00c"]
+[ext_resource type="PackedScene" uid="uid://bwx8n7vref23e" path="res://Scene/Characters/Main_player/Inventory/Inventroy.tscn" id="3_hw00c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3m2qq"]
 atlas = ExtResource("2_81pdr")
@@ -295,11 +295,10 @@ height = 22.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mtpqh"]
 
-[node name="Player1" type="CharacterBody2D"]
+[node name="Player1" type="CharacterBody2D" node_paths=PackedStringArray("inventory")]
 collision_layer = 2
 script = ExtResource("1_6ebfk")
-inventory = Object(Node2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"script":Resource("res://Script/Character/Main_player/Inventroy.gd"))
-
+inventory = NodePath("")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kek80")
