@@ -11,7 +11,16 @@ var current_direction = "none"
 
 var store_key = []
 
+<<<<<<< HEAD
 var life = 3
+=======
+#@export var inventory: Inventory
+
+func _ready() -> void:
+	add_to_group("player")  # Ensure player is in "player" group for Collectable.gd	
+#	if inventory == null:
+#		inventory = preload("res://Script/UI/inventory_gui/Resource_Items/PlayerInventory.tres").duplicate()
+>>>>>>> origin/ui-Item
 
 #Funksjonen er for spiller bevegelsen
 func _physics_process(delta): 
@@ -162,6 +171,7 @@ func play_anim(movment):
 		else:
 			animation.play("idle_front")
 
+<<<<<<< HEAD
 	
 
 
@@ -170,3 +180,28 @@ func _on_hurtbox_body_entered(body: CharacterBody2D) -> void:
 	if life <= 0:
 		get_tree().change_scene_to_file("res://Scene/start_screen.tscn")
 		life = 2
+=======
+func _drop_process(delta):
+	if Input.is_action_just_pressed("drop_item"):
+		if PlayerData.inventory.items.size() > 0 and PlayerData.inventory.items[0]:
+			drop_item(PlayerData.inventory.items[0])
+
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	if area.has_method("collect"):
+		area.collect(PlayerData.inventory)
+#		area.collect(inventory)
+
+func drop_item(item: InventoryItem):
+	# 1) Remove it from the player's inventory
+	PlayerData.inventory.remove_item(item)
+
+	# 2) Create a dropped-node instance in the world
+	var drop_instance = preload("res://Scene/Item/collectables.tscn").instantiate()
+	drop_instance.itemRes = item
+	
+	# 3) Place it at the player's current position so it appears "on the ground"
+	drop_instance.global_position = global_position
+	
+	# 4) Add the instance to the scene tree so it is visible and collectible
+	get_tree().get_current_scene().add_child(drop_instance)
+>>>>>>> origin/ui-Item
