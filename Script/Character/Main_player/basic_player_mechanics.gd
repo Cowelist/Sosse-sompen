@@ -11,6 +11,7 @@ var current_direction = "none"
 
 var store_key = []
 
+<<<<<<< HEAD
 
 
 var life = 3
@@ -26,6 +27,9 @@ func _ready() -> void:
 
 
 var life = 3
+=======
+var life = 3
+>>>>>>> parent of 453b588 (merge ui items to character 2)
 
 #Funksjonen er for spiller bevegelsen
 func _physics_process(delta): 
@@ -184,6 +188,7 @@ func _on_hurtbox_body_entered(body: CharacterBody2D) -> void:
 	if life <= 0:
 		get_tree().change_scene_to_file("res://Scene/start_screen.tscn")
 		life = 2
+<<<<<<< HEAD
 
 
 func _drop_process(delta):
@@ -209,3 +214,5 @@ func drop_item(item: InventoryItem):
 	
 	# 4) Add the instance to the scene tree so it is visible and collectible
 	get_tree().get_current_scene().add_child(drop_instance)
+=======
+>>>>>>> parent of 453b588 (merge ui items to character 2)
