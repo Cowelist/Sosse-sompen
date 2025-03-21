@@ -162,3 +162,7 @@ func play_anim(movment):
 			animation.play("idle_front")
 
 	
+
+
+#func _on_hitbox_body_entered(body: CharacterBody2D) -> void:
+#	print("Fungerer")

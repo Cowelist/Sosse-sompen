@@ -70,3 +70,5 @@ func play_anim(move_dir):
 
 func _on_enemy_hitbox_body_entered(body: CharacterBody2D) -> void:
 	$CPUParticles2D.emitting = true
+	life -= 1
+	print("life ", life)

@@ -382,6 +382,7 @@ radius = 7.0
 height = 16.0
 
 [node name="Enemy" type="CharacterBody2D"]
+collision_mask = 3
 script = ExtResource("1_hvgar")
 
 [node name="Enemy_movment" type="AnimatedSprite2D" parent="."]
