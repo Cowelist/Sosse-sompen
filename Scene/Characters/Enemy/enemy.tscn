@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dcefmvnxtdn66"]
+[gd_scene load_steps=44 format=3 uid="uid://dcefmvnxtdn66"]
 
 [ext_resource type="Texture2D" uid="uid://cybt5oayuryi7" path="res://Sprite/placeholder/sprites/characters/slime.png" id="1_hf0ya"]
 [ext_resource type="Script" path="res://Script/Character/Enemy/Enemy_movment.gd" id="1_hvgar"]
@@ -289,6 +289,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_6h5tx"]
 radius = 86.0523
 
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_qgxju"]
+
 [sub_resource type="Animation" id="Animation_dra1j"]
 length = 0.001
 tracks/0/type = "value"
@@ -386,16 +388,7 @@ shape = SubResource("CircleShape2D_6h5tx")
 disabled = true
 
 [node name="BTPlayer" type="BTPlayer" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-script = null
+blackboard_plan = SubResource("BlackboardPlan_qgxju")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 emitting = false
