@@ -12,7 +12,6 @@ func _tick(_delta: float) -> Status:
 	elif group == "player":
 		target = get_player_ndoe()
 
-	print(target)
 	blackboard.set_var(target_variable, target)
 	return SUCCESS
 	

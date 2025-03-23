@@ -11,7 +11,6 @@ func _tick(_delta: float) -> Status:
 	if target != null:
 		var target_position = target.global_position
 		var direction = agent.global_position.direction_to(target_position)
-		print("Skrii", direction)
 #Samme skript som i m_t_t | blir kalt på når target blir angrepet
 #Finner posisjonen din og target. Går deretter etter deg til du er i tolerance rangen 
 		if abs(agent.global_position.x - target_position.x) < tolerance:
@@ -21,7 +20,6 @@ func _tick(_delta: float) -> Status:
 			agent.movment_y(direction.y, 0)
 			return SUCCESS
 		else: 
-			print("verv", direction.x, direction.y)
 			agent.movment_x(direction.x, speed_var)
 			agent.movment_y(direction.y, speed_var)
 			return RUNNING
