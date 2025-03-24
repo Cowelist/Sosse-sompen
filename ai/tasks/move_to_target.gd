@@ -10,6 +10,7 @@ func _tick(_delta: float) -> Status:
 #Finner sin egen posisjon og prøver å gå mott målet (target) 
 	if target != null:
 		var target_position = target.global_position
+#Finner rettningen til target
 		var direction = agent.global_position.direction_to(target_position)
 #Samme skript som i m_t_t | blir kalt på når target blir angrepet
 #Finner posisjonen din og target. Går deretter etter deg til du er i tolerance rangen 
