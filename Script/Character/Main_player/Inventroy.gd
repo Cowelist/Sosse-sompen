@@ -17,15 +17,15 @@ func add_item_to_inventory(new_item):
 		if Inventory_space[i] == null:
 			Inventory_space[i] = new_item
 			return
-		else:
-			print("Inventory full")
-			print(Inventory_space)
+#		else:
+#			print("Inventory full")
+#			print(Inventory_space)
 
 func remove_item_from_inventory(item):
 	for i in range(Inventory_space.size()):
 		if Inventory_space[i] == item:
 			Inventory_space[i] = null
-			print("item has been removed")
+#			print("item has been removed")
 			return
-		elif Inventory_space[i] != item:
-			print("can not remove item since it is not in inventory")
+#		elif Inventory_space[i] != item:
+#			print("can not remove item since it is not in inventory")
