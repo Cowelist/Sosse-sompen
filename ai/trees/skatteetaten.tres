@@ -1,4 +1,4 @@
-[gd_resource type="BehaviorTree" load_steps=26 format=3 uid="uid://h2eknpt88ryi"]
+[gd_resource type="BehaviorTree" load_steps=29 format=3 uid="uid://h2eknpt88ryi"]
 
 [ext_resource type="Script" path="res://ai/tasks/choose_random_position.gd" id="1_lkcet"]
 [ext_resource type="Script" path="res://ai/tasks/move_to_position.gd" id="2_dm7d8"]
@@ -6,6 +6,9 @@
 [ext_resource type="Script" path="res://ai/tasks/move_to_target.gd" id="4_s0mys"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_e45c2"]
+
+[sub_resource type="BTConsolePrint" id="BTConsolePrint_ohtwt"]
+text = "random move"
 
 [sub_resource type="BTAction" id="BTAction_mqnl5"]
 script = ExtResource("1_lkcet")
@@ -33,10 +36,13 @@ children = [SubResource("BTRandomWait_kurno")]
 
 [sub_resource type="BTSequence" id="BTSequence_m3dsr"]
 custom_name = "Random move squence"
-children = [SubResource("BTAction_mqnl5"), SubResource("BTAction_1ntt1"), SubResource("BTWait_jy1s6"), SubResource("BTSequence_8qmrr")]
+children = [SubResource("BTConsolePrint_ohtwt"), SubResource("BTAction_mqnl5"), SubResource("BTAction_1ntt1"), SubResource("BTWait_jy1s6"), SubResource("BTSequence_8qmrr")]
 
 [sub_resource type="BTProbability" id="BTProbability_xox0t"]
 children = [SubResource("BTSequence_m3dsr")]
+
+[sub_resource type="BTConsolePrint" id="BTConsolePrint_rwaxx"]
+text = "Targeting friend"
 
 [sub_resource type="BTAction" id="BTAction_0oqlc"]
 script = ExtResource("3_224rc")
@@ -53,10 +59,13 @@ tolerance = 20
 
 [sub_resource type="BTSequence" id="BTSequence_vdf88"]
 custom_name = "Target_Squence"
-children = [SubResource("BTAction_0oqlc"), SubResource("BTAction_tim6x"), SubResource("BTWait_45gg8")]
+children = [SubResource("BTConsolePrint_rwaxx"), SubResource("BTAction_0oqlc"), SubResource("BTAction_tim6x"), SubResource("BTWait_45gg8")]
 
 [sub_resource type="BTProbability" id="BTProbability_k2qhd"]
 children = [SubResource("BTSequence_vdf88")]
+
+[sub_resource type="BTConsolePrint" id="BTConsolePrint_1637o"]
+text = "Targeting player(chase)"
 
 [sub_resource type="BTAction" id="BTAction_4yc2d"]
 script = ExtResource("3_224rc")
@@ -82,7 +91,7 @@ duration = 5.0
 
 [sub_resource type="BTSequence" id="BTSequence_r2513"]
 custom_name = "Attack_Squence"
-children = [SubResource("BTAction_4yc2d"), SubResource("BTPlayAnimation_mmk6o"), SubResource("BTAction_cindu"), SubResource("BTWait_8ftpy")]
+children = [SubResource("BTConsolePrint_1637o"), SubResource("BTAction_4yc2d"), SubResource("BTPlayAnimation_mmk6o"), SubResource("BTAction_cindu"), SubResource("BTWait_8ftpy")]
 
 [sub_resource type="BTProbability" id="BTProbability_k1cfm"]
 run_chance = 1.0

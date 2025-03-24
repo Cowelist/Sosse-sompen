@@ -8,6 +8,7 @@ signal updated
 #@export var slots: Array[InventorySlot]
 
 func _ready() -> void:
+	print("Inventory being called")
 	add_item_to_inventory("Leg")
 	add_item_to_inventory("Leg")
 	add_item_to_inventory("Leg")

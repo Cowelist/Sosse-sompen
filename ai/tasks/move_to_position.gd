@@ -19,15 +19,12 @@ func _tick(_delta: float) -> Status:
 #Dette ser etter posisjonen sin og går motden helt til den er i lengden til (tolerance) som er 10
 #dvs at den stopper rett før den når posisjonen sin
 	if abs(agent.global_position.y - target_position.y) < tolerance:
-#	if abs(agent.global_position.y - target_position.y):
 		agent.movment_y(dir_y, 0)
 		return SUCCESS
 	elif abs(agent.global_position.x - target_position.x) < tolerance:
-#	elif abs(agent.global_position.x - target_position.x):
 		agent.movment_x(dir_x, 0)
 		return SUCCESS
 	else:
-#dir_? er for retningen
 		agent.movment_y(dir_y, speed_var)
 		agent.movment_x(dir_x, speed_var)
 		return RUNNING

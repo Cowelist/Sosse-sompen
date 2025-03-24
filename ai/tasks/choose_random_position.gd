@@ -4,7 +4,6 @@ extends BTAction
 @export var range_max_dir: float = 100.0
 
 #& kan bli sett på som en global variable | kommer til å bli kalt på gjennom et annet script 
-#Stringname betyr at du setter opp en global variabel, mens uten så kaller du på en 
 @export var position_var: StringName = &"pos"
 @export var dir_var_x: StringName = &"dir_x"
 @export var dir_var_y: StringName = &"dir_y"
@@ -12,8 +11,8 @@ extends BTAction
 #Func som kjører til den får en spesifikk (SUCCESS) retur verdi
 func _tick(_delta: float) -> Status:
 	var pos: Vector2
-#Tar retur verdien til random_dir og sender den over til random_position
 	var dir = random_dir()
+	
 	pos = random_position(dir)
 #Gir postion_var den samme verdien som pos/random_position funksjonen
 	blackboard.set_var(position_var, pos)
@@ -23,7 +22,6 @@ func _tick(_delta: float) -> Status:
 	
 #Gir en tilfeldig posisjon som karakteren skal bevege seg til 
 func random_position(dir):
-# Vector2 blir brukt for å sette posisjon i enten hori eller vertikal rettning 
 	var vector: Vector2
 	var distance_x = randi_range(range_min_dir, range_max_dir) * dir 
 	var distance_y = randi_range(range_min_dir, range_max_dir) * dir
@@ -40,7 +38,6 @@ func random_position(dir):
 func random_dir():
 	var dir_x = randi_range(-2, 3)
 	var dir_y = randi_range(-2, 3)
-#Ser etter om dir_x er et negativt nummer 
 	if abs(dir_x) != dir_x:
 		dir_x = -1
 	elif dir_x <= 2:

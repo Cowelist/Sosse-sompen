@@ -1,15 +1,17 @@
 extends BTAction
-#export gjør det sånn at den kan gjøre endringer inspector
+
 @export var group: StringName
-@export var target_variable: StringName = &"target"	
+@export var target_variable: StringName = &"target"
 
 var target
+
 func _tick(_delta: float) -> Status:
 #Ser i group for å velge target
 	if group == "enemy":
 		target = get_enemy_ndoe()
 	elif group == "player":
 		target = get_player_ndoe()
+
 	blackboard.set_var(target_variable, target)
 	return SUCCESS
 	
