@@ -26,4 +26,4 @@ func get_enemy_ndoe():
 func get_player_ndoe():
 #Fra node lista/treet så tar den alle nodes i gruppen | mer spesifikk finner posisjonen utfra noden i treet
 	var nodes: Array[Node] = agent.get_tree().get_nodes_in_group(group)
-	return nodes[0]
+	return nodes#[0]
