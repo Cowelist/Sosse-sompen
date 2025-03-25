@@ -172,6 +172,7 @@ func _drop_process(delta):
 		if PlayerData.inventory.items.size() > 0 and PlayerData.inventory.items[0]:
 			drop_item(PlayerData.inventory.items[0])
 
+#
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.has_method("collect"):
 		area.collect(PlayerData.inventory)
