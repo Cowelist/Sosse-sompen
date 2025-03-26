@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var friction = 1000
 
-var speed = 50
+var speed = 10
 #const max_speed = 100
 var weight = 60
 var accumelation = Vector2(1, 1)
@@ -13,33 +13,55 @@ var store_key = []
 
 
 #Funksjonen er for spiller bevegelsen
+var right = "Dummy"
+var left = "Dummy"
+var down = "Dummy"
+var up = "Dummy"
+
+var life = 3
+
+
+func _ready() -> void:
+#  add_to_group("player")
+	if self.name == "Player1":
+		right = "1_dir_Right"
+		left = "1_dir_Left"
+		down = "1_dir_Down"
+		up = "1_dir_Up"
+	elif self.name == "Player2":
+		right = "2_dir_Right"
+		left = "2_dir_Left"
+		down = "2_dir_Down"
+		up = "2_dir_Up"
+
+
+
+#Funksjonen er for spiller bevegelsen
 func _physics_process(delta): 
 	var move_direction = Vector2.ZERO
-	
-	if Input.is_action_pressed("dir_Right"):
+	if Input.is_action_pressed(right):
 		current_direction = "right"
 		move_direction.x += 1
 		store_key.append("right")
 		accumelation_handler_hori("HORIZONTAL")
-		
-	if Input.is_action_pressed("dir_Down"):
+
+	if Input.is_action_pressed(down):
 		current_direction = "down"
 		move_direction.y += 1
 		store_key.append("down")
 		accumelation_handler_vert("VERTICAL")
-	
-	if Input.is_action_pressed("dir_Up"):
+
+	if Input.is_action_pressed(up):
 		current_direction = "up"
 		store_key.append("up")
 		move_direction.y -= 1
 		accumelation_handler_vert("VERTICAL")
 
-	if Input.is_action_pressed("dir_Left"):
+	if Input.is_action_pressed(left):
 		current_direction = "left"
 		store_key.append("left")
 		move_direction.x -= 1
 		accumelation_handler_hori("HORIZONTAL")
-		
 	
 	
 	#Gjort det sånn at man blir så hvit tregere når man går skrått
@@ -58,9 +80,7 @@ func _physics_process(delta):
 			move_direction.x += 0.25
 
 	
-	print(accumelation)
-	#print(store_key)
-	#print(velocity.length())
+
 	velocity = Vector2(move_direction * speed * accumelation)
 	if velocity.length() <= 300 and (store_key == ["right"] or store_key == ["left"]):
 		velocity.x = move_toward(velocity.x, move_direction.x * speed, accumelation.x)
@@ -87,7 +107,7 @@ func _physics_process(delta):
 	
 
 	accumelation_handler()
-	#print (velocity)
+
 	play_anim(move_direction)
 	move_and_slide()
 	
@@ -96,7 +116,7 @@ func accumelation_handler():
 	if store_key != []: 
 		store_key = []
 func accumelation_handler_stop():
-	print("running every frame")
+
 	if "right" not in store_key and "left" not in store_key:
 #stopper spilleren
 		if accumelation.x > 0.11:
@@ -104,7 +124,6 @@ func accumelation_handler_stop():
 		else:
 			accumelation.x = 0
 	if "up" not in store_key and "down" not in store_key:
-		print("Aeawea")
 #stopper spilleren
 		if accumelation.y > 0.11:
 			accumelation.y = max(accumelation.y - 0.2, 0.1)
@@ -164,5 +183,9 @@ func play_anim(movment):
 	
 
 
-#func _on_hitbox_body_entered(body: CharacterBody2D) -> void:
-#	print("Fungerer")
+func _on_hitbox_body_entered(body: CharacterBody2D) -> void:
+	print("Being called")
+	life -= 1
+	if life <= 0:
+		get_tree().change_scene_to_file("res://Scene/start_screen.tscn")
+		life = 2

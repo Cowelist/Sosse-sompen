@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://demo/agents/player/states/attack_state.gd" id="5_mpgu6"]
 [ext_resource type="Script" path="res://demo/agents/player/states/dodge_state.gd" id="6_7o4a6"]
 
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8pofm"]
 size = Vector2(150, 50)
 

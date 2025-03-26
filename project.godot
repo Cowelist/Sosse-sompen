@@ -14,6 +14,14 @@ config/name="Sosse_sompen"
 run/main_scene="res://Scene/start_screen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 
+[autoload]
+
+PlayerData="*res://Script/UI/inventory_gui/Player_Data.gd"
+
+[display]
+
+window/size/mode=3
+
 [file_customization]
 
 folder_colors={
