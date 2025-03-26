@@ -18,6 +18,7 @@ var left = "Dummy"
 var down = "Dummy"
 var up = "Dummy"
 
+var life = 3
 
 
 func _ready() -> void:
@@ -180,3 +181,11 @@ func play_anim(movment):
 			animation.play("idle_front")
 
 	
+
+
+func _on_hitbox_body_entered(body: CharacterBody2D) -> void:
+	print("Being called")
+	life -= 1
+	if life <= 0:
+		get_tree().change_scene_to_file("res://Scene/start_screen.tscn")
+		life = 2
