@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqawaxdc28wrv"]
+
+[ext_resource type="Script" path="res://Script/Character/Main_player/basic_player_mechanics.gd" id="1_qjgsf"]
+[ext_resource type="PackedScene" uid="uid://cc5t1dkk5aou5" path="res://Scene/Characters/Main_player/Inventory/Inventroy.tscn" id="2_yea16"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8ld86"]
+radius = 7.0
+height = 22.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tdmd8"]
+height = 24.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cewgy"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"idle_back",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle_front",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"idle_side",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk_back",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk_front",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk_side",
+"speed": 5.0
+}]
+
+[node name="Player2" type="CharacterBody2D"]
+z_index = 10
+script = ExtResource("1_qjgsf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+shape = SubResource("CapsuleShape2D_8ld86")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+light_mask = 0
+
+[node name="Inventory" parent="." instance=ExtResource("2_yea16")]
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, 8)
+shape = SubResource("CapsuleShape2D_tdmd8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cewgy")
+animation = &"idle_back"
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

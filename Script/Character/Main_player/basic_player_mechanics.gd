@@ -13,33 +13,54 @@ var store_key = []
 
 
 #Funksjonen er for spiller bevegelsen
+var right = "Dummy"
+var left = "Dummy"
+var down = "Dummy"
+var up = "Dummy"
+
+
+
+func _ready() -> void:
+#  add_to_group("player")
+	if self.name == "Player1":
+		right = "1_dir_Right"
+		left = "1_dir_Left"
+		down = "1_dir_Down"
+		up = "1_dir_Up"
+	elif self.name == "Player2":
+		right = "2_dir_Right"
+		left = "2_dir_Left"
+		down = "2_dir_Down"
+		up = "2_dir_Up"
+
+
+
+#Funksjonen er for spiller bevegelsen
 func _physics_process(delta): 
 	var move_direction = Vector2.ZERO
-	
-	if Input.is_action_pressed("dir_Right"):
+	if Input.is_action_pressed(right):
 		current_direction = "right"
 		move_direction.x += 1
 		store_key.append("right")
 		accumelation_handler_hori("HORIZONTAL")
-		
-	if Input.is_action_pressed("dir_Down"):
+
+	if Input.is_action_pressed(down):
 		current_direction = "down"
 		move_direction.y += 1
 		store_key.append("down")
 		accumelation_handler_vert("VERTICAL")
-	
-	if Input.is_action_pressed("dir_Up"):
+
+	if Input.is_action_pressed(up):
 		current_direction = "up"
 		store_key.append("up")
 		move_direction.y -= 1
 		accumelation_handler_vert("VERTICAL")
 
-	if Input.is_action_pressed("dir_Left"):
+	if Input.is_action_pressed(left):
 		current_direction = "left"
 		store_key.append("left")
 		move_direction.x -= 1
 		accumelation_handler_hori("HORIZONTAL")
-		
 	
 	
 	#Gjort det sånn at man blir så hvit tregere når man går skrått
