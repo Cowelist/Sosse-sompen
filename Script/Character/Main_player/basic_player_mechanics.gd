@@ -79,9 +79,7 @@ func _physics_process(delta):
 			move_direction.x += 0.25
 
 	
-	print(accumelation)
-	#print(store_key)
-	#print(velocity.length())
+
 	velocity = Vector2(move_direction * speed * accumelation)
 	if velocity.length() <= 300 and (store_key == ["right"] or store_key == ["left"]):
 		velocity.x = move_toward(velocity.x, move_direction.x * speed, accumelation.x)
@@ -108,7 +106,7 @@ func _physics_process(delta):
 	
 
 	accumelation_handler()
-	#print (velocity)
+
 	play_anim(move_direction)
 	move_and_slide()
 	
@@ -117,7 +115,7 @@ func accumelation_handler():
 	if store_key != []: 
 		store_key = []
 func accumelation_handler_stop():
-	print("running every frame")
+
 	if "right" not in store_key and "left" not in store_key:
 #stopper spilleren
 		if accumelation.x > 0.11:
@@ -125,7 +123,6 @@ func accumelation_handler_stop():
 		else:
 			accumelation.x = 0
 	if "up" not in store_key and "down" not in store_key:
-		print("Aeawea")
 #stopper spilleren
 		if accumelation.y > 0.11:
 			accumelation.y = max(accumelation.y - 0.2, 0.1)
@@ -183,7 +180,3 @@ func play_anim(movment):
 			animation.play("idle_front")
 
 	
-
-
-#func _on_hitbox_body_entered(body: CharacterBody2D) -> void:
-#	print("Fungerer")
